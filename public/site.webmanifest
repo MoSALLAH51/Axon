@@ -1,0 +1,8 @@
+{
+  "name": "AXON Landscape",
+  "short_name": "AXON",
+  "icons": [],
+  "theme_color": "#2d4a2d",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
