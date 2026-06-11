@@ -1,4 +1,5 @@
 "use client";
+    import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -50,19 +51,22 @@ export function Navbar() {
       <Container>
         <nav className="flex items-center justify-between h-18 md:h-22">
 
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500 focus-visible:ring-offset-2"
-          >
-            <span className="font-display text-2xl font-semibold tracking-tight text-charcoal-950">
-              AXON
-            </span>
-            <span className="hidden sm:block text-[10px] font-body font-medium tracking-[0.25em] uppercase text-charcoal-500 leading-none mt-1">
-              Landscape
-            </span>
-          </Link>
 
+
+<Link
+  href="/"
+  className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500 focus-visible:ring-offset-2 h-14 md:h-20"
+>
+  <Image
+    src="/images/logo_1.jpg"
+    alt="Axon Landscape"
+    width={500}
+    height={200}
+    priority
+    className="h-full w-auto object-contain"
+  />
+  <span className="sr-only">Axon Landscape</span>
+</Link>
           {/* Desktop Nav */}
           <ul className={cn("hidden lg:flex items-center gap-1", isRTL && "flex-row-reverse")}>
             {navItems.map((item) => (

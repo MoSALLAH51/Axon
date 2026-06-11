@@ -21,21 +21,6 @@ const QUICK_LINKS = {
   ],
 };
 
-const SERVICES = {
-  en: [
-    { label: "Landscape Design",      href: "/services/landscape-design" },
-    { label: "Landscape Maintenance", href: "/services/landscape-maintenance" },
-    { label: "Nursery",               href: "/services/nursery" },
-    { label: "Hardscape",             href: "/services/hardscape" },
-  ],
-  ar: [
-    { label: "تصميم المناظر الطبيعية", href: "/services/landscape-design" },
-    { label: "صيانة المناظر الطبيعية", href: "/services/landscape-maintenance" },
-    { label: "المشتل",                  href: "/services/nursery" },
-    { label: "الأعمال الصلبة",          href: "/services/hardscape" },
-  ],
-};
-
 const CONTACT = {
   en: {
     title:    "Contact Info",
@@ -46,7 +31,6 @@ const CONTACT = {
     rights:   "All Rights Reserved.",
     tagline:  "Designing and maintaining outdoor spaces that inspire and last.",
     quickLinks: "Quick Links",
-    services:   "Our Services",
   },
   ar: {
     title:    "معلومات التواصل",
@@ -57,7 +41,6 @@ const CONTACT = {
     rights:   "جميع الحقوق محفوظة.",
     tagline:  "نصمم ونحافظ على المساحات الخارجية التي تُلهم وتدوم.",
     quickLinks: "روابط سريعة",
-    services:   "خدماتنا",
   },
 };
 
@@ -67,14 +50,13 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   const quickLinks = QUICK_LINKS[locale];
-  const services   = SERVICES[locale];
   const t          = CONTACT[locale];
 
   return (
     <footer className="bg-forest-600 text-white" dir={isRTL ? "rtl" : "ltr"}>
       {/* ── Main Grid ── */}
       <Container>
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 py-16">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 py-16">
 
           {/* ── Brand ── */}
           <div className="flex flex-col gap-5">
@@ -131,20 +113,6 @@ export function Footer() {
             <h4 className="font-body text-sm font-semibold text-white mb-6">{t.quickLinks}</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="font-body text-sm text-white/70 hover:text-white transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* ── Our Services ── */}
-          <div>
-            <h4 className="font-body text-sm font-semibold text-white mb-6">{t.services}</h4>
-            <ul className="space-y-3">
-              {services.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="font-body text-sm text-white/70 hover:text-white transition-colors">
                     {link.label}
