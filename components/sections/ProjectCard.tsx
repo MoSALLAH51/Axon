@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { ProjectListItem } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -14,8 +13,7 @@ export function ProjectCard({ project, locale = "en", className }: ProjectCardPr
   const location = locale === "ar" ? project.location_ar : project.location_en;
 
   return (
-    <Link
-      href={`/projects/${project.id}`}
+    <div
       className={cn(
         "group relative block overflow-hidden aspect-portrait bg-charcoal-900",
         className,
@@ -49,6 +47,6 @@ export function ProjectCard({ project, locale = "en", className }: ProjectCardPr
           <p className="mt-1 font-body text-xs text-sand-400">{location}</p>
         )}
       </div>
-    </Link>
+    </div>
   );
 }
