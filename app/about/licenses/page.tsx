@@ -64,6 +64,19 @@ const T = {
 };
 
 /* ------------------------------------------------------------------ */
+/*  Icon sources (black-source SVGs, recolored via mask)               */
+/* ------------------------------------------------------------------ */
+
+const LICENSE_ICONS = [
+  "/images/license/license_5827655.svg",        // Trade License
+  "/images/license/files-folder_16775412.svg",  // Municipality Approval
+  "/images/license/helmet_9023077.svg",         // Safety Compliance Certificate
+  "/images/license/analysis_18747178.svg",      // Environmental Permit
+  "/images/license/mortgage-loan_6522252.svg",  // Water Authority Approval
+  "/images/license/paper-recycle_4640030.svg",  // Waste Management Approval
+];
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                           */
 /* ------------------------------------------------------------------ */
 
@@ -113,12 +126,7 @@ export default function LicensesPage() {
                 className="flex flex-col items-center text-center gap-4 bg-white border border-sand-200 rounded-2xl px-6 py-10 hover:border-forest-300 hover:shadow-md transition-all duration-300"
               >
                 <div className="w-16 h-16 rounded-full border border-forest-200 bg-forest-50 flex items-center justify-center text-forest-700 shrink-0">
-                  {i === 0 && <TradeLicenseIcon />}
-                  {i === 1 && <MunicipalityIcon />}
-                  {i === 2 && <SafetyIcon />}
-                  {i === 3 && <EnvPermitIcon />}
-                  {i === 4 && <WaterIcon />}
-                  {i === 5 && <WasteIcon />}
+                  <IconMask src={LICENSE_ICONS[i]} className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-body font-semibold text-sm text-charcoal-900 mb-2 leading-snug">
@@ -220,126 +228,24 @@ function ClipboardIllustration() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Icons                                                               */
+/*  Generic icon: recolors a black-source SVG via CSS mask so it        */
+/*  inherits `currentColor` from its parent (e.g. text-forest-700).     */
 /* ------------------------------------------------------------------ */
-
-/**
- * Trade License — a stamped scroll/permit: the formal document that
- * authorises the business to operate.
- */
-function TradeLicenseIcon() {
+function IconMask({ src, className }: { src: string; className?: string }) {
   return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* scroll body */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7 4.5A2.5 2.5 0 0 1 9.5 2h9A1.5 1.5 0 0 1 20 3.5v15a1.5 1.5 0 0 1-1.5 1.5H9.5A2.5 2.5 0 0 1 7 17.5v-13Z" />
-      {/* left curl */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17.5A2.5 2.5 0 0 1 4.5 20 2.5 2.5 0 0 1 7 17.5Z" />
-      {/* text lines on scroll */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M11 7h6M11 10h6M11 13h4" />
-      {/* stamp seal */}
-      <circle cx="16.5" cy="16.5" r="2" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.5 15.5l2 2" />
-    </svg>
-  );
-}
-
-/**
- * Municipality Approval — a city skyline with a checkmark:
- * official urban authority sign-off on landscape work.
- */
-function MunicipalityIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* buildings silhouette */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 21V10l4-3v14" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 21V7l6-4v18" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 21V11l4 2v8" />
-      {/* approval check badge top-right */}
-      <circle cx="18.5" cy="5.5" r="3" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 5.5l1 1.2 1.8-2" />
-    </svg>
-  );
-}
-
-/**
- * Safety Compliance — a hard hat: the universal symbol for
- * workplace safety on construction and landscape sites.
- */
-function SafetyIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* hard hat dome */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 13C4.5 8.306 7.91 4.5 12 4.5S19.5 8.306 19.5 13" />
-      {/* brim */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 13h18" />
-      {/* underbrim band */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13v1.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V13" />
-      {/* centre stripe on dome */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5V13" strokeOpacity="0.4" />
-    </svg>
-  );
-}
-
-/**
- * Environmental Permit — a leaf inside a circle:
- * authorisation to work in harmony with the environment.
- */
-function EnvPermitIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* outer circle = permit boundary */}
-      <circle cx="12" cy="12" r="9" />
-      {/* leaf shape */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 16c3-5 6-8 10-9-1 4-4 7-10 9Z" />
-      {/* leaf vein */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 16l4.5-4.5" />
-    </svg>
-  );
-}
-
-/**
- * Water Authority Approval — irrigation sprinkler arc with droplets:
- * directly represents the water / irrigation domain of this licence.
- */
-function WaterIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* sprinkler head base */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14v5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 19h6" />
-      {/* pivot point */}
-      <circle cx="12" cy="13" r="1" />
-      {/* spray arcs */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 10c1-2 3-3.5 6-3.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18 10c-1-2-3-3.5-6-3.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 8c1.5-3 4-5 8-5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M20 8c-1.5-3-4-5-8-5" />
-      {/* droplets */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7 12.5c0 .8-.6 1.5-1 1.5s-1-.7-1-1.5c0-1 1-2.5 1-2.5s1 1.5 1 2.5Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 12.5c0 .8-.6 1.5-1 1.5s-1-.7-1-1.5c0-1 1-2.5 1-2.5s1 1.5 1 2.5Z" />
-    </svg>
-  );
-}
-
-/**
- * Waste Management Approval — a recycling loop with a leaf:
- * sustainable circular waste practices in a green context.
- */
-function WasteIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* top arc arrow */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4c-2.5 0-4.7 1.3-6 3.2" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 9.5 6 7.2l2 .8" />
-      {/* bottom-right arc arrow */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.2c1.2 1.4 2 3.2 2 5.2 0 1-.2 2-.5 2.8" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17.5 17.5l2 .8.5-2.5" />
-      {/* bottom-left arc arrow */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 15.2A7.95 7.95 0 0 0 12 20c1.4 0 2.8-.4 4-1" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 17.8l-2-.8.3 2.5" />
-      {/* centre leaf */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14c0 0-1.5-1.5-.5-3.5 0 0 1 .8 1.5 2 .5-1.2 1.5-2 1.5-2 1 2-.5 3.5-2.5 3.5Z" />
-    </svg>
+    <span
+      className={cn("inline-block bg-current", className)}
+      style={{
+        WebkitMaskImage: `url(${src})`,
+        maskImage: `url(${src})`,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+      }}
+      aria-hidden="true"
+    />
   );
 }

@@ -75,6 +75,25 @@ const T = {
 };
 
 /* ------------------------------------------------------------------ */
+/*  Icon sources (black-source SVGs, recolored via mask)               */
+/* ------------------------------------------------------------------ */
+
+const CERT_ICONS = [
+  "/images/certificates/iso_4667049.svg",        // ISO 9001 – Quality
+  "/images/certificates/iso_8790297.svg",        // ISO 14001 – Environmental
+  "/images/certificates/nature_14165373.svg",    // ISO 45001 – Health & Safety
+  "/images/certificates/oil_5303175.svg",        // Irrigation Association Member
+  "/images/certificates/photo-camera_570373.svg",// Sustainable Landscape Council
+  "/images/certificates/professional_12622516.svg", // CPD Certified Professionals
+];
+
+const HIGHLIGHT_ICONS = [
+  "/images/certificates/2/best-employee_15220001.svg", // Trusted Standards
+  "/images/certificates/2/ecology_1530511.svg",         // Expert Team
+  "/images/certificates/2/guarantee_13707801.svg",      // Sustainable Practices
+];
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                           */
 /* ------------------------------------------------------------------ */
 
@@ -122,12 +141,7 @@ export default function CertificatesPage() {
             {certCards.map((card, i) => (
               <div key={i} className="flex flex-col items-center text-center gap-4 bg-white border border-sand-200 rounded-2xl px-6 py-10 hover:border-forest-300 hover:shadow-md transition-all duration-300">
                 <div className="w-16 h-16 rounded-full border border-forest-200 bg-forest-50 flex items-center justify-center text-forest-700 shrink-0">
-                  {i === 0 && <QualityIsoIcon />}
-                  {i === 1 && <EnvIsoIcon />}
-                  {i === 2 && <SafetyIsoIcon />}
-                  {i === 3 && <IrrigationMemberIcon />}
-                  {i === 4 && <SustainableCouncilIcon />}
-                  {i === 5 && <CpdIcon />}
+                  <IconMask src={CERT_ICONS[i]} className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-body font-semibold text-sm text-charcoal-900 leading-snug">
@@ -198,9 +212,7 @@ export default function CertificatesPage() {
             {highlights.map((h, i) => (
               <div key={i} className={cn("flex items-start gap-4", isRTL && "flex-row-reverse text-right")}>
                 <div className="w-11 h-11 rounded-full bg-forest-100 border border-forest-200 flex items-center justify-center shrink-0 text-forest-700">
-                  {i === 0 && <TrustedStandardsIcon />}
-                  {i === 1 && <ExpertTeamIcon />}
-                  {i === 2 && <SustainablePracticesIcon />}
+                  <IconMask src={HIGHLIGHT_ICONS[i]} className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="font-body font-semibold text-sm text-charcoal-900 mb-1">{h.title}</p>
@@ -243,172 +255,24 @@ function MedalIllustration() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Certificate card icons                                              */
+/*  Generic icon: recolors a black-source SVG via CSS mask so it        */
+/*  inherits `currentColor` from its parent (e.g. text-forest-700).     */
 /* ------------------------------------------------------------------ */
-
-/**
- * ISO 9001 — Quality Management: a rosette with a checkmark.
- * The rosette is the universal symbol for certified quality.
- */
-function QualityIsoIcon() {
+function IconMask({ src, className }: { src: string; className?: string }) {
   return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* outer rosette ring */}
-      <circle cx="12" cy="12" r="8.5" />
-      {/* inner ring */}
-      <circle cx="12" cy="12" r="5.5" />
-      {/* checkmark */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.5 12l2 2 3.5-3.5" />
-    </svg>
-  );
-}
-
-/**
- * ISO 14001 — Environmental Management: a leaf inside a circle.
- * The circle = certification boundary; the leaf = environment.
- */
-function EnvIsoIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 16c2.5-4 5.5-7 9-8-1 3.5-4 6.5-9 8Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 16l3.5-3.5" />
-    </svg>
-  );
-}
-
-/**
- * ISO 45001 — Occupational Health & Safety: a hard hat.
- * The unambiguous global symbol for site safety.
- */
-function SafetyIsoIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* dome */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 13C4.5 8.306 7.91 4.5 12 4.5S19.5 8.306 19.5 13" />
-      {/* brim */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 13h18" />
-      {/* band under brim */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13v1.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V13" />
-      {/* centre rib */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5V13" strokeOpacity="0.35" />
-    </svg>
-  );
-}
-
-/**
- * Irrigation Association — sprinkler head spraying arcs:
- * directly represents efficient water / irrigation management.
- */
-function IrrigationMemberIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* stem */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14v5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.5 19h5" />
-      {/* pivot */}
-      <circle cx="12" cy="13.5" r="0.75" fill="currentColor" />
-      {/* spray arcs — narrow */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7 11c1-1.8 2.8-3 5-3" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17 11c-1-1.8-2.8-3-5-3" />
-      {/* spray arcs — wide */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 9.5C6 6.5 8.7 4.5 12 4.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 9.5C18 6.5 15.3 4.5 12 4.5" />
-      {/* droplets */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5.5 13.5c0 .7-.5 1.2-.8 1.2s-.8-.5-.8-1.2c0-.8.8-2 .8-2s.8 1.2.8 2Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5c0 .7-.5 1.2-.8 1.2s-.8-.5-.8-1.2c0-.8.8-2 .8-2s.8 1.2.8 2Z" />
-    </svg>
-  );
-}
-
-/**
- * Sustainable Landscape Council — a tree inside a circle:
- * the council's purpose is protecting living landscapes.
- */
-function SustainableCouncilIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* council circle */}
-      <circle cx="12" cy="12" r="9" />
-      {/* tree trunk */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5" />
-      {/* canopy layers */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 13c0-2.2 1.8-4 4-4s4 1.8 4 4H8Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.5 13c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5" />
-    </svg>
-  );
-}
-
-/**
- * CPD Certified Professionals — an open book with a graduation cap:
- * continuous learning, professional development, knowledge growth.
- */
-function CpdIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* open book */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5C10 5.5 7.5 5.5 5 6.5v10c2.5-1 5-1 7 0m0-10c2-1 4.5-1 7 0v10c-2.5-1-5-1-7 0m0-10v10" />
-      {/* graduation cap board */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7 3.5l5 2 5-2-5-2-5 2Z" />
-      {/* tassel drop */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17 3.5v3" />
-    </svg>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Highlights bar icons                                                */
-/* ------------------------------------------------------------------ */
-
-/**
- * Trusted Standards — a shield with a star:
- * international-grade trust and accreditation.
- */
-function TrustedStandardsIcon() {
-  return (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7.5 3v5c0 4.5-3.5 8-7.5 9.5C8.5 19 4.5 15.5 4.5 11V6L12 3Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8l.9 1.8H15l-1.6 1.2.6 2L12 12l-2 1 .6-2L9 9.8h2.1L12 8Z" />
-    </svg>
-  );
-}
-
-/**
- * Expert Team — a person with a graduation cap:
- * qualified professionals, not just a generic group of people.
- */
-function ExpertTeamIcon() {
-  return (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* head */}
-      <circle cx="12" cy="8" r="3" />
-      {/* body / shoulders */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 21v-1a6 6 0 0 1 12 0v1" />
-      {/* mortarboard flat top */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 5l3.5-1.5L15.5 5" />
-      {/* tassel */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.5 5v2.5" />
-    </svg>
-  );
-}
-
-/**
- * Sustainable Practices — a rising sun over a leaf horizon:
- * green future, environmental aspiration, living landscapes.
- */
-function SustainablePracticesIcon() {
-  return (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* sun arc */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 15a5.5 5.5 0 0 1 11 0" />
-      {/* top ray */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 5.5V7" />
-      {/* side rays */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6.2 7.2l1 1M17.8 7.2l-1 1M4 12H5.5M18.5 12H20" />
-      {/* ground / leaf horizon */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 17c2-2 5-3 9-3s7 1 9 3" strokeOpacity="0.4" />
-      {/* small leaf on ground */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10 17c.5-1.5 2-2.5 4-2-1 1.5-2.5 2-4 2Z" />
-    </svg>
+    <span
+      className={cn("inline-block bg-current", className)}
+      style={{
+        WebkitMaskImage: `url(${src})`,
+        maskImage: `url(${src})`,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+      }}
+      aria-hidden="true"
+    />
   );
 }

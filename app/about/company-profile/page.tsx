@@ -81,141 +81,20 @@ const T = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  Card icons — Mission / Vision / Values                             */
+/*  Icon sources (black-source SVGs, recolored via mask)               */
 /* ------------------------------------------------------------------ */
 
-/**
- * Mission — a seedling breaking through soil: purposeful growth,
- * the act of nurturing something from the ground up.
- */
-function MissionIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* stem */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21V11" />
-      {/* left leaf */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 15c-2 0-5-1.5-5-5 0 0 2.5.5 5 2.5" />
-      {/* right leaf */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 12c2-1.5 5-2.5 5-2.5 0 3.5-3 5-5 5" />
-      {/* ground */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 21h8" />
-    </svg>
-  );
-}
+const CARD_ICONS = [
+  "/images/company-profile/mission_1628441.svg", // Mission
+  "/images/company-profile/eye_198002.svg",       // Vision
+  "/images/company-profile/badge_1720441.svg",    // Values
+];
 
-/**
- * Vision — a telescope pointed at the horizon: long-range ambition,
- * scanning for what is possible ahead.
- */
-function VisionIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* telescope barrel */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15L12 9l7.5-3" />
-      {/* eyepiece end (wide) */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5l3-3" />
-      {/* objective end (narrow) */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 6l1.5-1.5" />
-      {/* stand / tripod leg */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6" />
-      {/* base feet */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.5 21h5" />
-      {/* horizon line */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 19.5h18" strokeOpacity="0.3" />
-    </svg>
-  );
-}
-
-/**
- * Values — an open hand cradling a leaf: care for nature and people,
- * the human touch behind every value the company holds.
- */
-function ValuesIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* cupped hand — open palm arc */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 14.5c-.5-2 0-5 2-6.5 1-1 2.5-.5 3 .5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17.5 14.5c.5-2 0-5-2-6.5-1-1-2.5-.5-3 .5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 14.5c1 2.5 3 4 5.5 4s4.5-1.5 5.5-4" />
-      {/* leaf sitting in the palm */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14c0 0-2-2-1-4.5 0 0 1.5 1 2 2.5 .5-1.5 2-2.5 2-2.5 1 2.5-1 4.5-3 4.5Z" />
-    </svg>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Stat icons — Years / Projects / Satisfaction                       */
-/* ------------------------------------------------------------------ */
-
-/**
- * Years of Experience — tree rings / a mature tree:
- * age, growth, and accumulated wisdom over time.
- */
-function YearsIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* trunk */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-7" />
-      {/* canopy outer */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 14c0-3.314 2.686-6 6-6s6 2.686 6 6H6Z" />
-      {/* canopy inner layer */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 14c0-1.933 1.567-3.5 3.5-3.5S15.5 12.067 15.5 14" />
-      {/* ground */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 21h6" />
-    </svg>
-  );
-}
-
-/**
- * Projects Completed — a shovel breaking ground:
- * the act of building, starting work, and completing projects.
- */
-function ProjectsIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* shovel handle */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.5 4.5L9 11" />
-      {/* shovel blade */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 11l-1.5 1.5a2.121 2.121 0 0 0 3 3L12 14l2.5 2.5" />
-      {/* blade face */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 12.5a2.121 2.121 0 0 0 3 3" />
-      {/* grip top */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l1.5-1.5a1 1 0 0 1 1.5 0l1 1a1 1 0 0 1 0 1.5L16.5 7.5" />
-      {/* ground line */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 19h14" strokeOpacity="0.35" />
-      {/* dirt mound */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10 19c0-1.5 1-2.5 2.5-2.5S15 17.5 15 19" />
-    </svg>
-  );
-}
-
-/**
- * Client Satisfaction — a blooming flower:
- * the end result of great work — beauty, happiness, fulfilment.
- */
-function SatisfactionIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      {/* stem */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-9" />
-      {/* left leaf on stem */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 16c-1.5 0-3.5-1-3-3 0 0 1.5.5 3 1.5" />
-      {/* center of flower */}
-      <circle cx="12" cy="9" r="1.5" />
-      {/* petals */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 5.5V7" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 11v1.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 9H7" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.5 9H17" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.4 6.4L8.5 5.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M14.6 6.4l.9-.9" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.4 11.6l-.9.9" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M14.6 11.6l.9.9" />
-      {/* ground */}
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 21h6" />
-    </svg>
-  );
-}
+const STAT_ICONS = [
+  "/images/company-profile/2/15_5360491.svg",          // Years of Experience
+  "/images/company-profile/2/briefcase_293298.svg",    // Projects Completed
+  "/images/company-profile/2/satisfaction_12282490.svg", // Client Satisfaction
+];
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                           */
@@ -267,9 +146,7 @@ export default function CompanyProfilePage() {
               {cards.map((card, i) => (
                 <div key={card.label} className="group flex flex-col items-center text-center gap-5 p-8 rounded-2xl border border-sand-200 bg-white hover:border-forest-300 hover:shadow-md transition-all duration-300">
                   <div className="w-14 h-14 rounded-full bg-forest-50 border border-forest-100 flex items-center justify-center text-forest-700 group-hover:bg-forest-100 transition-colors duration-300">
-                    {i === 0 && <MissionIcon />}
-                    {i === 1 && <VisionIcon />}
-                    {i === 2 && <ValuesIcon />}
+                    <IconMask src={CARD_ICONS[i]} className="w-7 h-7" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-charcoal-900 mb-2">{card.label}</h3>
@@ -285,9 +162,7 @@ export default function CompanyProfilePage() {
                 {stats.map((stat, i) => (
                   <div key={stat.title} className={cn("flex items-center gap-5", isRTL && "flex-row-reverse text-right")}>
                     <div className="w-14 h-14 rounded-xl bg-white border border-sand-200 flex items-center justify-center text-forest-700 shrink-0">
-                      {i === 0 && <YearsIcon />}
-                      {i === 1 && <ProjectsIcon />}
-                      {i === 2 && <SatisfactionIcon />}
+                      <IconMask src={STAT_ICONS[i]} className="w-7 h-7" />
                     </div>
                     <div>
                       <p className="font-display text-3xl text-forest-700 font-semibold" dir="ltr">{stat.value}</p>
@@ -337,5 +212,28 @@ export default function CompanyProfilePage() {
         </Container>
       </Section>
     </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Generic icon: recolors a black-source SVG via CSS mask so it        */
+/*  inherits `currentColor` from its parent (e.g. text-forest-700).     */
+/* ------------------------------------------------------------------ */
+function IconMask({ src, className }: { src: string; className?: string }) {
+  return (
+    <span
+      className={cn("inline-block bg-current", className)}
+      style={{
+        WebkitMaskImage: `url(${src})`,
+        maskImage: `url(${src})`,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+      }}
+      aria-hidden="true"
+    />
   );
 }

@@ -2,70 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { getServices } from "@/services/servicesApi";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { useLocaleContext } from "@/components/providers/LocaleProvider";
+import { ServiceSelector } from "@/components/sections/ServiceSelector";
 import { cn } from "@/lib/utils";
 
 /* ------------------------------------------------------------------ */
 /*  Static data                                                         */
 /* ------------------------------------------------------------------ */
-
-const FALLBACK_SERVICES = {
-  en: [
-    {
-      id: "1", slug: "landscape-design",
-      title: "Landscape Design",
-      description: "Creative and functional designs tailored to your space and needs. From concept to detailed plans, we craft spaces that inspire.",
-      thumbnail: { url: "/images/services/landscape-design.jpg", alt: "Landscape Design" },
-    },
-    {
-      id: "2", slug: "landscape-maintenance",
-      title: "Landscape Maintenance",
-      description: "Professional maintenance to keep your landscape healthy, vibrant, and beautiful throughout every season.",
-      thumbnail: { url: "/images/services/landscape-maintenance.jpg", alt: "Landscape Maintenance" },
-    },
-    {
-      id: "3", slug: "nursery",
-      title: "Nursery",
-      description: "A wide variety of plants, trees, and flowers for every landscape — curated for the UAE climate.",
-      thumbnail: { url: "/images/services/nursery.jpg", alt: "Nursery" },
-    },
-    {
-      id: "4", slug: "hardscape",
-      title: "Hardscape",
-      description: "Durable and elegant hardscape solutions — pathways, patios, walls, and more — to complement your outdoor space.",
-      thumbnail: { url: "/images/services/hardscape.jpg", alt: "Hardscape" },
-    },
-  ],
-  ar: [
-    {
-      id: "1", slug: "landscape-design",
-      title: "تصميم المناظر الطبيعية",
-      description: "تصاميم إبداعية ووظيفية مخصصة لمساحتك واحتياجاتك. من الفكرة حتى الخطط التفصيلية، نصنع مساحات تُلهم.",
-      thumbnail: { url: "/images/services/landscape-design.jpg", alt: "تصميم المناظر الطبيعية" },
-    },
-    {
-      id: "2", slug: "landscape-maintenance",
-      title: "صيانة المناظر الطبيعية",
-      description: "صيانة احترافية للحفاظ على مناظرك الطبيعية نضرةً وجميلةً طوال فصول السنة.",
-      thumbnail: { url: "/images/services/landscape-maintenance.jpg", alt: "صيانة المناظر الطبيعية" },
-    },
-    {
-      id: "3", slug: "nursery",
-      title: "المشتل",
-      description: "مجموعة واسعة من النباتات والأشجار والزهور لكل بيئة — مختارة خصيصاً لمناخ الإمارات.",
-      thumbnail: { url: "/images/services/nursery.jpg", alt: "المشتل" },
-    },
-    {
-      id: "4", slug: "hardscape",
-      title: "الأعمال الصلبة",
-      description: "حلول صلبة متينة وأنيقة — ممرات، وأفنية، وجدران، والمزيد — لتكمل مساحتك الخارجية.",
-      thumbnail: { url: "/images/services/hardscape.jpg", alt: "الأعمال الصلبة" },
-    },
-  ],
-};
 
 const WHATS_INCLUDED = {
   en: [
@@ -77,12 +22,12 @@ const WHATS_INCLUDED = {
     { title: "3D Visualization",      desc: "Realistic 3D views that bring your future landscape to life." },
   ],
   ar: [
-    { title: "تحليل الموقع",          desc: "فهم ظروف موقعك وإمكانياته وقيوده." },
-    { title: "تخطيط الفضاء",          desc: "تخطيطات محسّنة تعزز الحركة والوظيفة والتجربة." },
-    { title: "اختيار النباتات",        desc: "مجموعات نباتية مختارة تتناسب مع المناخ والأسلوب والغرض." },
-    { title: "الري والإضاءة",          desc: "خطط ري وإضاءة فعّالة للجمال والأداء." },
-    { title: "لوحة المواد",            desc: "مواد فاخرة مختارة للمتانة والانسجام البصري." },
-    { title: "التصور ثلاثي الأبعاد",   desc: "مشاهد ثلاثية الأبعاد واقعية تُحيي مناظرك المستقبلية." },
+    { title: "تحليل الموقع",         desc: "فهم ظروف موقعك وإمكانياته وقيوده." },
+    { title: "تخطيط الفضاء",         desc: "تخطيطات محسّنة تعزز الحركة والوظيفة والتجربة." },
+    { title: "اختيار النباتات",       desc: "مجموعات نباتية مختارة تتناسب مع المناخ والأسلوب والغرض." },
+    { title: "الري والإضاءة",         desc: "خطط ري وإضاءة فعّالة للجمال والأداء." },
+    { title: "لوحة المواد",           desc: "مواد فاخرة مختارة للمتانة والانسجام البصري." },
+    { title: "التصور ثلاثي الأبعاد",  desc: "مشاهد ثلاثية الأبعاد واقعية تُحيي مناظرك المستقبلية." },
   ],
 };
 
@@ -96,27 +41,27 @@ const PROCESS = {
     { step: 6, title: "Final Delivery",      desc: "Final plans delivered for seamless execution." },
   ],
   ar: [
-    { step: 1, title: "الاستشارة",           desc: "نستمع إلى رؤيتك واحتياجاتك وأهدافك." },
-    { step: 2, title: "تحليل الموقع",        desc: "ندرس موقعك ونجمع الرؤى الأساسية." },
-    { step: 3, title: "تطوير المفهوم",       desc: "مفاهيم إبداعية تعكس رؤيتك." },
-    { step: 4, title: "التخطيط التفصيلي",    desc: "خطط شاملة واختيارات ومواصفات دقيقة." },
-    { step: 5, title: "المراجعة والموافقة",  desc: "نصقل التصميم بناءً على ملاحظاتك." },
-    { step: 6, title: "التسليم النهائي",     desc: "تسليم الخطط النهائية لتنفيذ سلس." },
+    { step: 1, title: "الاستشارة",          desc: "نستمع إلى رؤيتك واحتياجاتك وأهدافك." },
+    { step: 2, title: "تحليل الموقع",       desc: "ندرس موقعك ونجمع الرؤى الأساسية." },
+    { step: 3, title: "تطوير المفهوم",      desc: "مفاهيم إبداعية تعكس رؤيتك." },
+    { step: 4, title: "التخطيط التفصيلي",   desc: "خطط شاملة واختيارات ومواصفات دقيقة." },
+    { step: 5, title: "المراجعة والموافقة", desc: "نصقل التصميم بناءً على ملاحظاتك." },
+    { step: 6, title: "التسليم النهائي",    desc: "تسليم الخطط النهائية لتنفيذ سلس." },
   ],
 };
 
 const WHY_AXON = {
   en: [
-    { title: "Experienced Team",    desc: "Skilled designers and horticulturists with diverse expertise." },
-    { title: "Tailored Solutions",  desc: "Custom designs crafted around your lifestyle and site." },
-    { title: "Quality Standards",   desc: "Premium materials and meticulous attention to detail." },
-    { title: "Sustainable Design",  desc: "Environmentally responsible solutions that last." },
+    { title: "Experienced Team",   desc: "Skilled designers and horticulturists with diverse expertise." },
+    { title: "Tailored Solutions", desc: "Custom designs crafted around your lifestyle and site." },
+    { title: "Quality Standards",  desc: "Premium materials and meticulous attention to detail." },
+    { title: "Sustainable Design", desc: "Environmentally responsible solutions that last." },
   ],
   ar: [
-    { title: "فريق متمرس",           desc: "مصممون وخبراء نباتات ذوو كفاءة وخبرة متنوعة." },
-    { title: "حلول مخصصة",           desc: "تصاميم مخصصة حول أسلوب حياتك وموقعك." },
-    { title: "معايير الجودة",         desc: "مواد فاخرة واهتمام دقيق بكل تفصيل." },
-    { title: "تصميم مستدام",          desc: "حلول مسؤولة بيئياً تدوم طويلاً." },
+    { title: "فريق متمرس",          desc: "مصممون وخبراء نباتات ذوو كفاءة وخبرة متنوعة." },
+    { title: "حلول مخصصة",          desc: "تصاميم مخصصة حول أسلوب حياتك وموقعك." },
+    { title: "معايير الجودة",        desc: "مواد فاخرة واهتمام دقيق بكل تفصيل." },
+    { title: "تصميم مستدام",         desc: "حلول مسؤولة بيئياً تدوم طويلاً." },
   ],
 };
 
@@ -153,181 +98,109 @@ const FAQ = {
 
 const T = {
   en: {
-    breadcrumbHome: "Home",
-    breadcrumbServices: "Services",
-    badge: "What We Offer",
-    heroTitle: "Our Services",
-    heroDesc: "Comprehensive landscape architecture, design, and nursery services for every scale of project across the UAE.",
-    overviewTitle: "Overview",
-    overviewDesc: "Our Landscape Design service delivers thoughtfully crafted outdoor environments that balance beauty, functionality, and sustainability. From concept to detailed plans, we design spaces that enhance well-being and add lasting value.",
-    whatsIncluded: "What's Included",
-    ourProcess: "Our Process",
-    whyAxon: "Why Choose Axon",
-    featuredWorks: "Featured Design Works",
-    faq: "FAQ",
+    breadcrumbHome:    "Home",
+    breadcrumbServices:"Services",
+    badge:             "What We Offer",
+    heroTitle:         "Our Services",
+    heroDesc:          "Comprehensive landscape architecture, design, and nursery services for every scale of project across the UAE.",
+    servicesTitle:     "What We Do",
+    servicesDesc:      "Five specialised services — from concept through construction — covering every aspect of your outdoor environment.",
+    whatsIncluded:     "What's Included",
+    ourProcess:        "Our Process",
+    whyAxon:           "Why Choose Axon",
+    featuredWorks:     "Featured Design Works",
+    faq:               "FAQ",
   },
   ar: {
-    breadcrumbHome: "الرئيسية",
-    breadcrumbServices: "الخدمات",
-    badge: "ما نقدمه",
-    heroTitle: "خدماتنا",
-    heroDesc: "خدمات شاملة في هندسة المناظر الطبيعية والتصميم والمشتل لكل حجم من المشاريع في الإمارات.",
-    overviewTitle: "نظرة عامة",
-    overviewDesc: "تقدم خدمة تصميم المناظر الطبيعية لدينا بيئات خارجية مدروسة تجمع بين الجمال والوظيفة والاستدامة. من الفكرة حتى الخطط التفصيلية، نصمم مساحات ترفع جودة الحياة وتضيف قيمة دائمة.",
-    whatsIncluded: "ما يشمله التصميم",
-    ourProcess: "آلية عملنا",
-    whyAxon: "لماذا تختار أكسون",
-    featuredWorks: "أبرز أعمال التصميم",
-    faq: "الأسئلة الشائعة",
+    breadcrumbHome:    "الرئيسية",
+    breadcrumbServices:"الخدمات",
+    badge:             "ما نقدمه",
+    heroTitle:         "خدماتنا",
+    heroDesc:          "خدمات شاملة في هندسة المناظر الطبيعية والتصميم والمشتل لكل حجم من المشاريع في الإمارات.",
+    servicesTitle:     "ماذا نقدم",
+    servicesDesc:      "خمس خدمات متخصصة — من التصميم حتى الإنشاء — تغطي كل جانب من جوانب بيئتك الخارجية.",
+    whatsIncluded:     "ما يشمله التصميم",
+    ourProcess:        "آلية عملنا",
+    whyAxon:           "لماذا تختار أكسون",
+    featuredWorks:     "أبرز أعمال التصميم",
+    faq:               "الأسئلة الشائعة",
   },
 };
 
 /* ------------------------------------------------------------------ */
-/*  Icons — landscape-themed                                            */
+/*  Icons                                                               */
 /* ------------------------------------------------------------------ */
 
-// What's Included icons:
-// 1. Site Analysis      → magnifier over terrain/map contour lines
-// 2. Space Planning     → floor-plan grid with measurements
-// 3. Plant Selection    → leaf / botanical
-// 4. Irrigation & Light → water drop + sun rays
-// 5. Material Palette   → stone/paving swatches
-// 6. 3D Visualization   → cube with perspective lines
-
 const INCLUDED_ICONS = [
-  /* 1 — Site Analysis: magnifier over topographic contour */
   <svg key="site-analysis" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* contour lines */}
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 14c1.5-1 3.5-1.5 5-1s3 1.5 4.5 1 2.5-1 3.5-1" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 17c1.5-1 3.5-1.5 5-1s3 1.5 4.5 1 2.5-1 3.5-1" />
-    {/* magnifier */}
     <circle cx="14.5" cy="8.5" r="4" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M17.5 11.5 21 15" />
   </svg>,
-
-  /* 2 — Space Planning: site plan / blueprint grid */
   <svg key="space-planning" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
     <rect x="3" y="3" width="18" height="18" rx="1.5" />
-    {/* inner room divisions */}
-    <path strokeLinecap="round" d="M3 10h18" />
-    <path strokeLinecap="round" d="M11 10v11" />
-    {/* dimension tick marks */}
-    <path strokeLinecap="round" d="M7 3v2M16 3v2M3 15h2M3 7h2" />
+    <path strokeLinecap="round" d="M3 10h18M11 10v11M7 3v2M16 3v2M3 15h2M3 7h2" />
   </svg>,
-
-  /* 3 — Plant Selection: botanical leaf with vein */
   <svg key="plant-selection" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* leaf outline */}
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 21C12 21 4 16 4 9a8 8 0 0 1 16 0c0 7-8 12-8 12Z" />
-    {/* central vein */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21V9" />
-    {/* side veins */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 13l-3-2.5M12 16l3-2" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21V9M12 13l-3-2.5M12 16l3-2" />
   </svg>,
-
-  /* 4 — Irrigation & Lighting: water drop with sun rays */
-  <svg key="irrigation-lighting" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* sun */}
+  <svg key="irrigation" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
     <circle cx="17" cy="7" r="2.5" />
     <path strokeLinecap="round" d="M17 3.5V2M17 12v-1.5M20.5 7H22M12 7h1.5M19.6 4.4l1-1M14.4 9.6l-1 1M20.6 9.6l1 1M14.4 4.4l-1-1" />
-    {/* water drop */}
     <path strokeLinecap="round" strokeLinejoin="round" d="M8 5c0 0-5 5.5-5 9a5 5 0 0 0 10 0c0-3.5-5-9-5-9Z" />
   </svg>,
-
-  /* 5 — Material Palette: paving stones / tile grid */
-  <svg key="material-palette" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* large stone top-left */}
+  <svg key="material" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
     <rect x="2.5" y="2.5" width="8" height="5" rx="0.75" />
-    {/* large stone top-right */}
     <rect x="13.5" y="2.5" width="8" height="5" rx="0.75" />
-    {/* offset middle row */}
     <rect x="7" y="10" width="10" height="5" rx="0.75" />
     <rect x="2.5" y="10" width="3" height="5" rx="0.75" />
     <rect x="18.5" y="10" width="3" height="5" rx="0.75" />
-    {/* bottom row */}
     <rect x="2.5" y="17.5" width="8" height="4" rx="0.75" />
     <rect x="13.5" y="17.5" width="8" height="4" rx="0.75" />
   </svg>,
-
-  /* 6 — 3D Visualization: isometric landscape cube */
   <svg key="3d-viz" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* top face */}
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 3 21 8l-9 5-9-5 9-5Z" />
-    {/* left face */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8v8l9 5V13L3 8Z" />
-    {/* right face */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8v8l-9 5V13l9-5Z" />
-    {/* subtle terrain lines on top face */}
-    <path strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.5" d="M8 5.5l4 2.5 4-2.5" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8v8l9 5V13L3 8ZM21 8v8l-9 5V13l9-5Z" />
   </svg>,
 ];
 
-// Why Choose Axon icons:
-// 1. Experienced Team   → group of people / botanist silhouette
-// 2. Tailored Solutions → ruler + pencil (custom drawing)
-// 3. Quality Standards  → rosette / award badge
-// 4. Sustainable Design → leaf recycling / eco cycle
-
 const WHY_ICONS = [
-  /* 1 — Experienced Team: people group with a plant */
   <svg key="team" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* left person */}
     <circle cx="5.5" cy="7" r="2" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M2 19c0-2 1.5-3.5 3.5-3.5S9 17 9 19" />
-    {/* right person */}
     <circle cx="18.5" cy="7" r="2" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19c0-2 1.5-3.5 3.5-3.5S22 17 22 19" />
-    {/* center person with plant/leaf crown — the expert */}
     <circle cx="12" cy="6" r="2.5" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 19c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5" />
-    {/* small leaf above center person */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3.5c0 0 1.5-1.5 2.5-.5s0 2.5-2.5 2.5-3.5-1.5-2.5-2.5S12 3.5 12 3.5Z" />
   </svg>,
-
-  /* 2 — Tailored Solutions: ruler + pencil (bespoke design) */
   <svg key="tailored" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* ruler */}
     <rect x="2" y="14" width="20" height="5" rx="1" transform="rotate(-45 2 14)" />
     <path strokeLinecap="round" d="M6.5 14.5v1.5M9.5 11.5v1.5M12.5 8.5v1.5M15.5 5.5v1.5" />
-    {/* pencil tip */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19 5l-1.5 1.5" />
   </svg>,
-
-  /* 3 — Quality Standards: rosette / award */
   <svg key="quality" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* outer starburst / rosette */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2l2.09 4.26L18.5 7l-3.5 3.4.83 4.85L12 13.1l-3.83 2.15L9 10.4 5.5 7l4.41-.74L12 2Z" />
-    {/* inner circle */}
-    <circle cx="12" cy="10" r="2.5" />
-    {/* ribbon tail */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17l-1 5 4-2.5 4 2.5-1-5" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
   </svg>,
-
-  /* 4 — Sustainable Design: eco leaf with circular arrow */
   <svg key="sustainable" className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
-    {/* leaf */}
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 22C12 22 5 17 5 10.5A7 7 0 0 1 19 10.5c0 2.5-1.5 5-3 6.5" />
-    {/* central vein */}
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 22v-9" />
-    {/* recycling arc arrow */}
-    <path strokeLinecap="round" strokeLinejoin="round" d="M16 19a5 5 0 0 1-8 0" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M14.5 17.5l1.5 1.5-1.5 1.5" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M16 19a5 5 0 0 1-8 0M14.5 17.5l1.5 1.5-1.5 1.5" />
   </svg>,
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Component                                                           */
+/*  Page                                                                */
 /* ------------------------------------------------------------------ */
 
 export default function ServicesPage() {
   const { locale } = useLocaleContext();
   const isRTL = locale === "ar";
   const t = T[locale];
-  const whatsIncluded  = WHATS_INCLUDED[locale];
-  const process        = PROCESS[locale];
-  const whyAxon        = WHY_AXON[locale];
-  const faq            = FAQ[locale];
-  const fallback       = FALLBACK_SERVICES[locale];
+  const whatsIncluded = WHATS_INCLUDED[locale];
+  const process       = PROCESS[locale];
+  const whyAxon       = WHY_AXON[locale];
+  const faq           = FAQ[locale];
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"}>
@@ -335,7 +208,13 @@ export default function ServicesPage() {
       {/* ── HERO ── */}
       <section className="relative min-h-[420px] md:min-h-[520px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/services/landscape-maintenance.jpg" alt={t.heroTitle} fill priority className="object-cover" />
+          <Image
+            src="/images/services/landscape-maintenance.jpg"
+            alt={t.heroTitle}
+            fill
+            priority
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
         </div>
 
@@ -356,39 +235,50 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      {/* ── SERVICE OVERVIEW ── */}
+      {/* ── SERVICE SELECTOR ── */}
       <Section spacing="lg" className="bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-20">
-            <div className={cn("flex flex-col gap-6", isRTL && "text-right")}>
-              <h2 className="font-display text-4xl md:text-5xl text-charcoal-900 leading-tight">{t.overviewTitle}</h2>
-              <div className={cn("w-10 h-0.5 bg-forest-600", isRTL && "mr-0 ml-auto")} />
-              <p className="font-body text-base text-charcoal-500 leading-relaxed">{t.overviewDesc}</p>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-              <Image src="/images/services/landscape-design.jpg" alt={t.overviewTitle} fill className="object-cover" />
-            </div>
+          {/* Section header */}
+          <div className={cn("mb-10", isRTL ? "text-right" : "text-left")}>
+            <span className="inline-block mb-3 text-xs font-semibold tracking-[0.2em] uppercase text-forest-600">
+              {t.badge}
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl text-charcoal-900 mb-3">{t.servicesTitle}</h2>
+            <div className={cn("w-10 h-0.5 bg-forest-600 mb-4", isRTL && "mr-0 ml-auto")} />
+            <p className="font-body text-base text-charcoal-500 max-w-lg leading-relaxed">
+              {t.servicesDesc}
+            </p>
           </div>
 
-          {/* What's Included */}
-          <div className="text-center">
-            <h2 className="font-display text-3xl md:text-4xl text-charcoal-900 mb-3">{t.whatsIncluded}</h2>
-            <div className="w-10 h-0.5 bg-forest-600 mx-auto mb-12" />
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {whatsIncluded.map((item, i) => (
-                <div key={item.title} className="group flex flex-col items-center gap-3 p-5 rounded-2xl border border-sand-200 bg-white hover:border-forest-300 hover:shadow-md transition-all duration-300">
-                  <div className="text-forest-700">{INCLUDED_ICONS[i]}</div>
-                  <h4 className="font-semibold text-sm text-charcoal-900 text-center leading-snug">{item.title}</h4>
-                  <p className="font-body text-xs text-charcoal-500 leading-relaxed text-center">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* The interactive selector */}
+          <ServiceSelector />
         </Container>
       </Section>
 
-      {/* ── OUR PROCESS ── */}
+      {/* ── WHAT'S INCLUDED ── */}
       <section className="bg-sand-50 border-y border-sand-200 py-20 md:py-28">
+        <Container>
+          <div className="text-center mb-14">
+            <h2 className="font-display text-3xl md:text-4xl text-charcoal-900 mb-3">{t.whatsIncluded}</h2>
+            <div className="w-10 h-0.5 bg-forest-600 mx-auto" />
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {whatsIncluded.map((item, i) => (
+              <div
+                key={item.title}
+                className="group flex flex-col items-center gap-3 p-5 rounded-2xl border border-sand-200 bg-white hover:border-forest-300 hover:shadow-md transition-all duration-300"
+              >
+                <div className="text-forest-700">{INCLUDED_ICONS[i]}</div>
+                <h4 className="font-semibold text-sm text-charcoal-900 text-center leading-snug">{item.title}</h4>
+                <p className="font-body text-xs text-charcoal-500 leading-relaxed text-center">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── OUR PROCESS ── */}
+      <Section spacing="lg" className="bg-white">
         <Container>
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl md:text-4xl text-charcoal-900 mb-3">{t.ourProcess}</h2>
@@ -409,10 +299,10 @@ export default function ServicesPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
       {/* ── WHY CHOOSE AXON ── */}
-      <Section spacing="lg" className="bg-white">
+      <section className="bg-sand-50 border-y border-sand-200 py-20 md:py-28">
         <Container>
           <div className="text-center mb-14">
             <h2 className="font-display text-3xl md:text-4xl text-charcoal-900 mb-3">{t.whyAxon}</h2>
@@ -420,7 +310,10 @@ export default function ServicesPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
             {whyAxon.map((item, i) => (
-              <div key={item.title} className="group flex flex-col items-center text-center gap-4 p-7 rounded-2xl border border-sand-200 bg-white hover:border-forest-300 hover:shadow-md transition-all duration-300">
+              <div
+                key={item.title}
+                className="group flex flex-col items-center text-center gap-4 p-7 rounded-2xl border border-sand-200 bg-white hover:border-forest-300 hover:shadow-md transition-all duration-300"
+              >
                 <div className="text-forest-700">{WHY_ICONS[i]}</div>
                 <div>
                   <h4 className="font-semibold text-charcoal-900 mb-1">{item.title}</h4>
@@ -430,7 +323,7 @@ export default function ServicesPage() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* ── FEATURED DESIGN WORKS ── */}
       <section className="bg-white py-20 md:py-28">
@@ -447,7 +340,12 @@ export default function ServicesPage() {
               { src: "/images/projects/project-4.jpg", alt: "Project 4" },
             ].map((img, i) => (
               <div key={i} className="relative aspect-square rounded-2xl overflow-hidden group shadow-sm">
-                <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
             ))}
           </div>
@@ -464,7 +362,12 @@ export default function ServicesPage() {
           <div className="flex flex-col divide-y divide-sand-200 border border-sand-200 rounded-2xl bg-white overflow-hidden">
             {faq.map((item, i) => (
               <details key={i} className="group px-6 py-5 cursor-pointer">
-                <summary className={cn("flex items-center justify-between gap-4 font-body text-sm font-medium text-charcoal-900 list-none [&::-webkit-details-marker]:hidden", isRTL && "flex-row-reverse")}>
+                <summary
+                  className={cn(
+                    "flex items-center justify-between gap-4 font-body text-sm font-medium text-charcoal-900 list-none [&::-webkit-details-marker]:hidden",
+                    isRTL && "flex-row-reverse",
+                  )}
+                >
                   {item.q}
                   <span className="shrink-0 text-forest-700 transition-transform duration-300 group-open:rotate-180">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

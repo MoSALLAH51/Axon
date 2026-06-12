@@ -20,16 +20,16 @@ import type { ServiceListItem, ProjectListItem } from "@/types";
 
 const FEATURES = {
   en: [
-    { icon: "🌿", title: "Sustainable",       desc: "Eco-friendly solutions for a better tomorrow." },
-    { icon: "🛡️", title: "Quality",           desc: "We deliver the highest standards of quality." },
-    { icon: "👥", title: "Experienced Team",  desc: "Our experts bring your vision to life." },
-    { icon: "🤝", title: "Customer Focused",  desc: "Your satisfaction is our top priority." },
+    { title: "Sustainable",       desc: "Eco-friendly solutions for a better tomorrow." },
+    { title: "Quality",           desc: "We deliver the highest standards of quality." },
+    { title: "Experienced Team",  desc: "Our experts bring your vision to life." },
+    { title: "Customer Focused",  desc: "Your satisfaction is our top priority." },
   ],
   ar: [
-    { icon: "🌿", title: "الاستدامة",         desc: "حلول صديقة للبيئة من أجل غدٍ أفضل." },
-    { icon: "🛡️", title: "الجودة",            desc: "نقدم أعلى معايير الجودة في كل مشروع." },
-    { icon: "👥", title: "فريق متمرس",        desc: "خبراؤنا يحولون رؤيتك إلى واقع." },
-    { icon: "🤝", title: "التركيز على العميل", desc: "رضاك هو أولويتنا القصوى." },
+    { title: "الاستدامة",         desc: "حلول صديقة للبيئة من أجل غدٍ أفضل." },
+    { title: "الجودة",            desc: "نقدم أعلى معايير الجودة في كل مشروع." },
+    { title: "فريق متمرس",        desc: "خبراؤنا يحولون رؤيتك إلى واقع." },
+    { title: "التركيز على العميل", desc: "رضاك هو أولويتنا القصوى." },
   ],
 };
 
@@ -73,6 +73,23 @@ const FALLBACK_SERVICES = {
     { id: "4", slug: "hardscape",             title: "الأعمال الصلبة",          desc: "حلول صلبة متينة وأنيقة تكمل مساحتك الخارجية.",                thumbnail: "/images/services/hardscape.jpg" },
   ],
 };
+
+/* ------------------------------------------------------------------ */
+/*  Icon sources (black-source SVGs, recolored via mask)               */
+/* ------------------------------------------------------------------ */
+
+const FEATURE_ICONS = [
+  "/images/home/leaf_497384.svg",       // Sustainable
+  "/images/home/shield_1621638.svg",    // Quality
+  "/images/home/group_18756681.svg",    // Experienced Team
+  "/images/home/handshake_3562054.svg", // Customer Focused
+];
+
+const LINK_ICONS = [
+  "/images/home/medal_3135490.svg",       // Company Profile
+  "/images/home/construction_10941930.svg", // Licenses
+  "/images/home/diploma_12493824.svg",    // Certificates
+];
 
 /* ------------------------------------------------------------------ */
 /*  Props                                                               */
@@ -144,10 +161,10 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
       <section className="bg-white border-b border-sand-200">
         <Container>
           <dl className="grid grid-cols-2 md:grid-cols-4 divide-x divide-sand-200">
-            {features.map((f) => (
+            {features.map((f, i) => (
               <div key={f.title} className="group flex flex-col items-center text-center gap-4 px-6 py-12 transition-all duration-300 hover:bg-sand-50">
-                <div className="w-14 h-14 rounded-full border border-forest-300 bg-forest-50 flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110">
-                  {f.icon}
+                <div className="w-14 h-14 rounded-full border border-forest-300 bg-forest-50 flex items-center justify-center text-forest-700 transition-transform duration-300 group-hover:scale-110">
+                  <IconMask src={FEATURE_ICONS[i]} className="w-6 h-6" />
                 </div>
                 <dt className="font-semibold text-base text-charcoal-900">{f.title}</dt>
                 <dd className="text-sm text-charcoal-500 leading-relaxed max-w-[220px]">{f.desc}</dd>
@@ -211,9 +228,7 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
             {links.map((l, i) => (
               <div key={i} className="group px-8 py-10 flex flex-row items-start gap-5 transition-all duration-300 hover:bg-sand-100">
                 <div className="shrink-0 w-14 h-14 rounded-xl bg-forest-50 border border-forest-100 flex items-center justify-center transition-all duration-300 group-hover:bg-forest-100 text-forest-700">
-                  {i === 0 && <CompanyProfileIcon />}
-                  {i === 1 && <LicenseIcon />}
-                  {i === 2 && <CertificateIcon />}
+                  <IconMask src={LINK_ICONS[i]} className="w-7 h-7" />
                 </div>
                 <div className={cn("flex flex-col gap-1.5", isRTL && "text-right")}>
                   <dt className="text-base font-semibold text-charcoal-900">{l.title}</dt>
@@ -370,36 +385,24 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
 }
 
 /* ------------------------------------------------------------------ */
-/*  Icons                                                               */
+/*  Generic icon: recolors a black-source SVG via CSS mask so it        */
+/*  inherits `currentColor` from its parent (e.g. text-forest-700).     */
 /* ------------------------------------------------------------------ */
-
-function CompanyProfileIcon() {
+function IconMask({ src, className }: { src: string; className?: string }) {
   return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 22V12" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 16c-2 0-5-1.5-5-5 0 0 2.5.5 5 2.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 13c2-1.5 5-2.5 5-2.5 0 3.5-3 5-5 5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 22h6" />
-    </svg>
-  );
-}
-
-function LicenseIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7.5 3v5c0 4.5-3.5 8-7.5 9.5C8 19 4.5 15.5 4.5 11V6L12 3Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
-    </svg>
-  );
-}
-
-function CertificateIcon() {
-  return (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      <circle cx="12" cy="9" r="4.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 7l.75 1.5H14.5l-1.375 1 .5 1.75L12 10.25l-1.625 1 .5-1.75L9.5 8.5h1.75L12 7Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 13.5L7.5 21l4.5-2.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 13.5L16.5 21 12 18.5" />
-    </svg>
+    <span
+      className={cn("inline-block bg-current", className)}
+      style={{
+        WebkitMaskImage: `url(${src})`,
+        maskImage: `url(${src})`,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+      }}
+      aria-hidden="true"
+    />
   );
 }
