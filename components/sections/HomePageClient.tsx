@@ -65,12 +65,14 @@ const FALLBACK_SERVICES = {
     { id: "2", slug: "landscape-maintenance", title: "Landscape Maintenance", desc: "Professional maintenance to keep your landscape healthy and beautiful.",    thumbnail: "/images/services/landscape-maintenance.jpg" },
     { id: "3", slug: "nursery",               title: "Nursery",               desc: "A wide variety of plants, trees, and flowers for every landscape.",         thumbnail: "/images/services/nursery.jpg" },
     { id: "4", slug: "hardscape",             title: "Hardscape",             desc: "Durable and elegant hardscape solutions to complement your outdoor space.", thumbnail: "/images/services/hardscape.jpg" },
+    { id: "5", slug: "irrigation-system",     title: "Irrigation System",     desc: "Efficient irrigation systems designed to keep your landscape thriving.",     thumbnail: "/images/services/irrigation-system.jpg" },
   ],
   ar: [
     { id: "1", slug: "landscape-design",      title: "تصميم المناظر الطبيعية", desc: "تصاميم إبداعية ووظيفية مخصصة لمساحتك واحتياجاتك.",            thumbnail: "/images/services/landscape-design.jpg" },
     { id: "2", slug: "landscape-maintenance", title: "صيانة المناظر الطبيعية", desc: "صيانة احترافية للحفاظ على جمال مناظرك الطبيعية وصحتها.",       thumbnail: "/images/services/landscape-maintenance.jpg" },
     { id: "3", slug: "nursery",               title: "المشتل",                  desc: "مجموعة واسعة من النباتات والأشجار والزهور لكل بيئة خضراء.",   thumbnail: "/images/services/nursery.jpg" },
     { id: "4", slug: "hardscape",             title: "الأعمال الصلبة",          desc: "حلول صلبة متينة وأنيقة تكمل مساحتك الخارجية.",                thumbnail: "/images/services/hardscape.jpg" },
+    { id: "5", slug: "irrigation-system",     title: "نظام الري",              desc: "أنظمة ري فعالة تحافظ على نضارة مناظرك الطبيعية.",             thumbnail: "/images/services/irrigation-system.jpg" },
   ],
 };
 

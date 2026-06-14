@@ -79,11 +79,11 @@ const T = {
 /* ------------------------------------------------------------------ */
 
 const CERT_ICONS = [
-  "/images/certificates/iso_4667049.svg",        // ISO 9001 – Quality
   "/images/certificates/iso_8790297.svg",        // ISO 14001 – Environmental
-  "/images/certificates/nature_14165373.svg",    // ISO 45001 – Health & Safety
+  "/images/certificates/iso_4667049.svg",        // ISO 9001 – Quality
+  "/images/certificates/photo-camera_570373.svg",    // ISO 45001 – Health & Safety
   "/images/certificates/oil_5303175.svg",        // Irrigation Association Member
-  "/images/certificates/photo-camera_570373.svg",// Sustainable Landscape Council
+  "/images/certificates/nature_14165373.svg",// Sustainable Landscape Council
   "/images/certificates/professional_12622516.svg", // CPD Certified Professionals
 ];
 

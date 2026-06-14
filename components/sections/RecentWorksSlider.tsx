@@ -91,7 +91,7 @@ export function RecentWorksSlider() {
             {works.map((project) => (
               <Link
                 key={project.id}
-                href={`/projects/${project.slug}`}
+                href={`/projects/${project.id}`}
                 className="group relative shrink-0 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
                 style={{ width: `calc(100% / ${VISIBLE} - ${(VISIBLE - 1) / VISIBLE}rem)` }}
               >

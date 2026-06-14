@@ -88,7 +88,7 @@ const SERVICES: Service[] = [
       en: "Precision irrigation design and installation that delivers water exactly where it's needed — reducing consumption while keeping landscapes thriving.",
       ar: "تصميم وتركيب أنظمة ري دقيقة تُوصل المياه بالضبط حيث تُحتاج — تقليل الاستهلاك مع إبقاء المناظر الطبيعية مزدهرة.",
     },
-    image:    "/images/services/irrigation_system.jpg",
+    image:    "/images/services/irrigation-system.jpg",
     features: {
       en: ["Drip irrigation", "Smart controllers", "System audit", "Underground pipes", "Leak detection", "Seasonal setup"],
       ar: ["ري بالتنقيط", "وحدات تحكم ذكية", "تدقيق النظام", "أنابيب تحت الأرض", "كشف التسربات", "إعداد موسمي"],
