@@ -197,113 +197,9 @@ const SERVICES: ServiceData[] = [
   /* ──────────────────────────────────────────────────────────────── */
   /*  2. Landscape Construction                                         */
   /* ──────────────────────────────────────────────────────────────── */
-  {
-    slug: "landscape-construction",
-    title: { en: "Landscape Construction", ar: "تنفيذ المناظر الطبيعية" },
-    description: {
-      en: "From groundwork to finishing touches, we bring landscape designs to life with precision, craftsmanship, and care.",
-      ar: "من الأعمال الأساسية إلى اللمسات النهائية، ننفّذ تصاميم المناظر الطبيعية بدقة وحرفية واهتمام.",
-    },
-    overview: {
-      en: "Our Landscape Construction service translates approved designs into reality. Our skilled crews handle hardscaping, softscaping, structures, and finishing work with a focus on quality, timelines, and site safety.",
-      ar: "تترجم خدمة تنفيذ المناظر الطبيعية التصاميم المعتمدة إلى واقع ملموس. فرقنا المتمرسة تتولى الأعمال الصلبة والزراعية والإنشاءات والتشطيبات مع التركيز على الجودة والمواعيد وسلامة الموقع.",
-    },
-    hero_image: "/images/services/landscape-construction.jpg",
-    overview_image: "/images/services/construction-overview.jpg",
-    included: [
-      {
-        icon: <GridIcon />,
-        title: { en: "Site Preparation", ar: "تجهيز الموقع" },
-        desc: {
-          en: "Clearing, grading, and groundwork to set a solid foundation.",
-          ar: "تنظيف وتسوية وأعمال أساسية لإعداد قاعدة متينة.",
-        },
-      },
-      {
-        icon: <CubeIcon />,
-        title: { en: "Hardscaping", ar: "الأعمال الصلبة" },
-        desc: {
-          en: "Paving, decking, walls, and structural elements built to last.",
-          ar: "أرصفة وممرات وجدران وعناصر إنشائية مصممة للمتانة.",
-        },
-      },
-      {
-        icon: <LeafIcon />,
-        title: { en: "Softscaping", ar: "الأعمال الزراعية" },
-        desc: {
-          en: "Planting, turf laying, and soil preparation for healthy growth.",
-          ar: "زراعة النباتات وتمديد العشب وتجهيز التربة لنمو صحي.",
-        },
-      },
-      {
-        icon: <DropIcon />,
-        title: { en: "Irrigation Installation", ar: "تركيب أنظمة الري" },
-        desc: {
-          en: "Full installation of irrigation lines, valves, and controllers.",
-          ar: "تركيب كامل لخطوط الري والصمامات ووحدات التحكم.",
-        },
-      },
-      {
-        icon: <PaletteIcon />,
-        title: { en: "Lighting & Electrical", ar: "الإضاءة والكهرباء" },
-        desc: {
-          en: "Outdoor lighting and electrical work installed to specification.",
-          ar: "تركيب الإضاءة الخارجية والأعمال الكهربائية حسب المواصفات.",
-        },
-      },
-      {
-        icon: <ShieldIcon />,
-        title: { en: "Quality Handover", ar: "تسليم بالجودة" },
-        desc: {
-          en: "Final inspections and walkthroughs before project handover.",
-          ar: "فحوصات نهائية وجولات تفتيش قبل تسليم المشروع.",
-        },
-      },
-    ],
-    process: [
-      { step: 1, title: { en: "Project Kickoff", ar: "انطلاق المشروع" }, desc: { en: "Reviewing approved plans and mobilizing the team.", ar: "مراجعة الخطط المعتمدة وتجهيز الفريق." } },
-      { step: 2, title: { en: "Site Preparation", ar: "تجهيز الموقع" }, desc: { en: "Clearing, grading, and setting out the site.", ar: "تنظيف وتسوية وتحديد معالم الموقع." } },
-      { step: 3, title: { en: "Hardscape Works", ar: "الأعمال الصلبة" }, desc: { en: "Building paving, walls, and structural features.", ar: "إنشاء الأرصفة والجدران والعناصر الإنشائية." } },
-      { step: 4, title: { en: "Planting & Turfing", ar: "الزراعة والتعشيب" }, desc: { en: "Installing plants, trees, and turf areas.", ar: "زراعة النباتات والأشجار ومناطق العشب." } },
-      { step: 5, title: { en: "Systems Integration", ar: "تكامل الأنظمة" }, desc: { en: "Connecting irrigation, lighting, and electrical systems.", ar: "ربط أنظمة الري والإضاءة والكهرباء." } },
-      { step: 6, title: { en: "Final Handover", ar: "التسليم النهائي" }, desc: { en: "Quality checks and project handover to the client.", ar: "فحوصات الجودة وتسليم المشروع للعميل." } },
-    ],
-    why: [
-      { icon: <TeamIcon />, title: { en: "Skilled Crews", ar: "فرق متمرسة" }, desc: { en: "Trained construction teams with hands-on landscape expertise.", ar: "فرق تنفيذ مدربة وذات خبرة عملية في المناظر الطبيعية." } },
-      { icon: <ShieldIcon />, title: { en: "Built to Last", ar: "بناء يدوم" }, desc: { en: "Durable materials and proven construction techniques.", ar: "مواد متينة وتقنيات بناء مثبتة." } },
-      { icon: <CubeIcon />, title: { en: "On-Time Delivery", ar: "التزام بالمواعيد" }, desc: { en: "Clear schedules and proactive project management.", ar: "جداول واضحة وإدارة مشاريع استباقية." } },
-      { icon: <EcoIcon />, title: { en: "Safe & Responsible", ar: "أمان ومسؤولية" }, desc: { en: "Strict safety standards and respect for the surrounding site.", ar: "معايير سلامة صارمة واحترام للموقع المحيط." } },
-    ],
-    faq: [
-      {
-        q: { en: "Do you work from our existing design plans?", ar: "هل تعملون وفق خطط التصميم الموجودة لدينا؟" },
-        a: {
-          en: "Yes, we can construct from your existing approved designs, or from our in-house Landscape Design service for a seamless handoff.",
-          ar: "نعم، يمكننا التنفيذ بناءً على تصاميمكم المعتمدة، أو من خدمة تصميم المناظر الطبيعية الخاصة بنا لانتقال سلس.",
-        },
-      },
-      {
-        q: { en: "How long does construction typically take?", ar: "كم تستغرق أعمال التنفيذ عادةً؟" },
-        a: {
-          en: "Duration depends on project size and complexity, ranging from a few weeks for small gardens to several months for large estates.",
-          ar: "تعتمد المدة على حجم المشروع وتعقيده، وتتراوح من بضعة أسابيع للحدائق الصغيرة إلى عدة أشهر للمشاريع الكبيرة.",
-        },
-      },
-      {
-        q: { en: "Do you provide a warranty on the work?", ar: "هل تقدمون ضماناً على الأعمال؟" },
-        a: {
-          en: "Yes, all our construction work comes with a workmanship warranty, with details specified in your project contract.",
-          ar: "نعم، تأتي جميع أعمالنا بضمان على الجودة، مع تفاصيل محددة في عقد مشروعك.",
-        },
-      },
-    ],
-  },
 
-  /* ──────────────────────────────────────────────────────────────── */
-  /*  3. Maintenance                                                    */
-  /* ──────────────────────────────────────────────────────────────── */
   {
-    slug: "maintenance",
+    slug: "landscape-maintenance",
     title: { en: "Landscape Maintenance", ar: "صيانة المناظر الطبيعية" },
     description: {
       en: "Keep your outdoor spaces healthy, tidy, and thriving year-round with our dedicated maintenance programs.",
@@ -314,7 +210,7 @@ const SERVICES: ServiceData[] = [
       ar: "تحافظ خدمة الصيانة على مظهر مناظرك الطبيعية في أفضل حالاتها على مدار الفصول. من العناية الدورية إلى الصيانة الموسمية، تضمن فرقنا استمرار نمو وازدهار استثمارك.",
     },
     hero_image: "/images/services/landscape-maintenance.jpg",
-    overview_image: "/images/services/maintenance-overview.jpg",
+    overview_image: "/images/services/landscape-maintenance-overview.jpg",
     included: [
       {
         icon: <LeafIcon />,
@@ -364,6 +260,7 @@ const SERVICES: ServiceData[] = [
           ar: "تجديد الأحواض والمساحات بألوان وتنوع موسمي.",
         },
       },
+      
     ],
     process: [
       { step: 1, title: { en: "Initial Assessment", ar: "التقييم الأولي" }, desc: { en: "We evaluate your landscape's current condition and needs.", ar: "نقيّم الحالة الراهنة لمناظرك الطبيعية واحتياجاتها." } },
@@ -404,11 +301,224 @@ const SERVICES: ServiceData[] = [
     ],
   },
 
+
+
   /* ──────────────────────────────────────────────────────────────── */
-  /*  4. Irrigation Design                                              */
+  /*  3. Nursery                                                    */
+  /* ──────────────────────────────────────────────────────────────── */
+
+    {
+    slug: "nursery",
+    title: { en: "Plant Nursery & Supply", ar: "المشتل وتوريد النباتات" },
+    description: {
+      en: "A wide selection of healthy, climate-suited plants and trees, sourced and cared for to thrive in the UAE.",
+      ar: "تشكيلة واسعة من النباتات والأشجار الصحية والمناسبة للمناخ، مصدرها وعناية بها لتزدهر في المنطقة.",
+    },
+    overview: {
+      en: "Our Plant Nursery & Supply service provides a curated range of trees, shrubs, and plants — all grown and maintained to thrive in the UAE's climate. Whether for a small garden or a large-scale project, we supply quality stock backed by expert guidance.",
+      ar: "تقدم خدمة المشتل وتوريد النباتات تشكيلة مختارة من الأشجار والشجيرات والنباتات — جميعها مزروعة ومُعتنى بها لتزدهر في مناخ المنطقة. سواء لحديقة صغيرة أو مشروع كبير، نوفر مخزوناً عالي الجودة مدعوماً بإرشاد متخصص.",
+    },
+    hero_image: "/images/services/nursery.jpg",
+    overview_image: "/images/services/nursery_overview.jpg",
+    included: [
+      {
+        icon: <LeafIcon />,
+        title: { en: "Tree & Shrub Selection", ar: "اختيار الأشجار والشجيرات" },
+        desc: {
+          en: "A wide variety of climate-suited trees and shrubs in stock.",
+          ar: "تشكيلة واسعة من الأشجار والشجيرات المناسبة للمناخ متوفرة لدينا.",
+        },
+      },
+      {
+        icon: <PaletteIcon />,
+        title: { en: "Seasonal Flowers", ar: "أزهار موسمية" },
+        desc: {
+          en: "Fresh seasonal color options for beds, planters, and borders.",
+          ar: "خيارات ألوان موسمية طازجة للأحواض والمساحات والحدود.",
+        },
+      },
+      {
+        icon: <GridIcon />,
+        title: { en: "Bulk Supply", ar: "التوريد بالجملة" },
+        desc: {
+          en: "Large-quantity supply for commercial and public projects.",
+          ar: "توريد بكميات كبيرة للمشاريع التجارية والعامة.",
+        },
+      },
+      {
+        icon: <SearchIcon />,
+        title: { en: "Plant Health Inspection", ar: "فحص صحة النباتات" },
+        desc: {
+          en: "Every plant is inspected for health before leaving the nursery.",
+          ar: "يتم فحص كل نبتة للتأكد من صحتها قبل مغادرة المشتل.",
+        },
+      },
+      {
+        icon: <CubeIcon />,
+        title: { en: "Delivery & Handling", ar: "التوصيل والمعالجة" },
+        desc: {
+          en: "Careful transport and handling to keep plants in top condition.",
+          ar: "نقل ومعالجة بعناية للحفاظ على النباتات في أفضل حالاتها.",
+        },
+      },
+      {
+        icon: <ShieldIcon />,
+        title: { en: "Expert Guidance", ar: "إرشاد متخصص" },
+        desc: {
+          en: "Advice on selection, placement, and care for long-term success.",
+          ar: "نصائح حول الاختيار والوضع والعناية لنجاح طويل الأمد.",
+        },
+      },
+    ],
+    process: [
+      { step: 1, title: { en: "Needs Discussion", ar: "مناقشة الاحتياجات" }, desc: { en: "We discuss your project's plant and quantity requirements.", ar: "نناقش متطلبات مشروعك من النباتات والكميات." } },
+      { step: 2, title: { en: "Stock Selection", ar: "اختيار المخزون" }, desc: { en: "Choosing plants suited to your site and design.", ar: "اختيار النباتات المناسبة لموقعك وتصميمك." } },
+      { step: 3, title: { en: "Quality Inspection", ar: "فحص الجودة" }, desc: { en: "Checking each plant for health and condition.", ar: "فحص كل نبتة للتأكد من صحتها وحالتها." } },
+      { step: 4, title: { en: "Scheduling", ar: "الجدولة" }, desc: { en: "Planning delivery timing to match your project phase.", ar: "تخطيط توقيت التوصيل بما يتناسب مع مرحلة مشروعك." } },
+      { step: 5, title: { en: "Delivery", ar: "التوصيل" }, desc: { en: "Safe transport of plants to your site.", ar: "نقل آمن للنباتات إلى موقعك." } },
+      { step: 6, title: { en: "Aftercare Advice", ar: "نصائح العناية اللاحقة" }, desc: { en: "Guidance to help new plants establish successfully.", ar: "إرشادات لمساعدة النباتات الجديدة على التأصل بنجاح." } },
+    ],
+    why: [
+      { icon: <LeafIcon />, title: { en: "Climate-Suited Stock", ar: "مخزون مناسب للمناخ" }, desc: { en: "Plants chosen and grown to thrive in UAE conditions.", ar: "نباتات مختارة ومزروعة لتزدهر في ظروف المنطقة." } },
+      { icon: <ShieldIcon />, title: { en: "Healthy Guarantee", ar: "ضمان الصحة" }, desc: { en: "Every plant inspected before delivery for top condition.", ar: "كل نبتة مفحوصة قبل التوصيل لضمان أفضل حالة." } },
+      { icon: <GridIcon />, title: { en: "Wide Selection", ar: "تشكيلة واسعة" }, desc: { en: "From small shrubs to mature trees, all in one place.", ar: "من الشجيرات الصغيرة إلى الأشجار الكبيرة، كل ذلك في مكان واحد." } },
+      { icon: <TeamIcon />, title: { en: "Expert Advice", ar: "نصائح الخبراء" }, desc: { en: "Our team helps you choose the right plants for your space.", ar: "يساعدك فريقنا في اختيار النباتات المناسبة لمساحتك." } },
+    ],
+    faq: [
+      {
+        q: { en: "Can I visit the nursery to choose plants in person?", ar: "هل يمكنني زيارة المشتل لاختيار النباتات شخصياً؟" },
+        a: {
+          en: "Yes, visits can be arranged so you can see and select plants directly with guidance from our team.",
+          ar: "نعم، يمكن ترتيب زيارات لرؤية واختيار النباتات مباشرة مع إرشاد من فريقنا.",
+        },
+      },
+      {
+        q: { en: "Do you supply for large commercial projects?", ar: "هل توردون للمشاريع التجارية الكبيرة؟" },
+        a: {
+          en: "Yes, we handle bulk orders for commercial, public, and developer projects of all sizes.",
+          ar: "نعم، نتعامل مع الطلبات الكبيرة للمشاريع التجارية والعامة ومشاريع المطورين بجميع أحجامها.",
+        },
+      },
+      {
+        q: { en: "What if a plant doesn't survive after delivery?", ar: "ماذا لو لم تنجُ النبتة بعد التوصيل؟" },
+        a: {
+          en: "We provide aftercare guidance, and replacement options can be discussed depending on the cause and terms agreed at purchase.",
+          ar: "نقدم إرشادات للعناية اللاحقة، ويمكن مناقشة خيارات الاستبدال حسب السبب والشروط المتفق عليها عند الشراء.",
+        },
+      },
+    ],
+  },
+
+/* ──────────────────────────────────────────────────────────────── */
+  /*  4. Hardscape                                        */
   /* ──────────────────────────────────────────────────────────────── */
   {
-    slug: "irrigation-design",
+    slug: "hardscape",
+    title: { en: "Hardscape Construction", ar: "تنفيذ الأعمال الصلبة" },
+    description: {
+      en: "Durable paving, walls, decking, and structural elements built with precision and craftsmanship.",
+      ar: "أرصفة وجدران وممرات وعناصر إنشائية متينة، منفذة بدقة وحرفية عالية.",
+    },
+    overview: {
+      en: "Our Hardscape service brings the structural and architectural elements of your outdoor space to life. From paving and decking to retaining walls and built-in features, our skilled crews execute every detail with quality, durability, and site safety in mind.",
+      ar: "تجسّد خدمة تنفيذ الأعمال الصلبة العناصر الإنشائية والمعمارية لمساحتك الخارجية. من الأرصفة والممرات إلى الجدران الاستنادية والعناصر الثابتة، تنفّذ فرقنا المتمرسة كل التفاصيل بجودة ومتانة وسلامة في الموقع.",
+    },
+    hero_image: "/images/services/hardscape.jpg",
+    overview_image: "/images/services/hardscape_overview.png",
+    included: [
+      {
+        icon: <GridIcon />,
+        title: { en: "Site Preparation", ar: "تجهيز الموقع" },
+        desc: {
+          en: "Clearing, grading, and groundwork to set a solid foundation.",
+          ar: "تنظيف وتسوية وأعمال أساسية لإعداد قاعدة متينة.",
+        },
+      },
+      {
+        icon: <CubeIcon />,
+        title: { en: "Paving & Walkways", ar: "الأرصفة والممرات" },
+        desc: {
+          en: "Durable paving and walkway installation tailored to your design.",
+          ar: "تركيب أرصفة وممرات متينة تتناسب مع تصميمك.",
+        },
+      },
+      {
+        icon: <ShieldIcon />,
+        title: { en: "Walls & Retaining Structures", ar: "الجدران والإنشاءات الاستنادية" },
+        desc: {
+          en: "Decorative and retaining walls built for strength and style.",
+          ar: "جدران زينة وجدران استنادية مصممة للقوة والمظهر الجمالي.",
+        },
+      },
+      {
+        icon: <CubeIcon />,
+        title: { en: "Decking & Pergolas", ar: "الأرضيات الخشبية والبرغولات" },
+        desc: {
+          en: "Custom decking, pergolas, and shade structures for outdoor living.",
+          ar: "أرضيات خشبية وبرغولات وهياكل تظليل مخصصة للمعيشة الخارجية.",
+        },
+      },
+      {
+        icon: <DropIcon />,
+        title: { en: "Water Features", ar: "العناصر المائية" },
+        desc: {
+          en: "Construction of fountains, ponds, and other water features.",
+          ar: "تنفيذ النوافير والبرك وعناصر مائية أخرى.",
+        },
+      },
+      {
+        icon: <CheckIcon />,
+        title: { en: "Quality Handover", ar: "تسليم بالجودة" },
+        desc: {
+          en: "Final inspections and walkthroughs before project handover.",
+          ar: "فحوصات نهائية وجولات تفتيش قبل تسليم المشروع.",
+        },
+      },
+    ],
+    process: [
+      { step: 1, title: { en: "Project Kickoff", ar: "انطلاق المشروع" }, desc: { en: "Reviewing approved plans and mobilizing the team.", ar: "مراجعة الخطط المعتمدة وتجهيز الفريق." } },
+      { step: 2, title: { en: "Site Preparation", ar: "تجهيز الموقع" }, desc: { en: "Clearing, grading, and setting out the site.", ar: "تنظيف وتسوية وتحديد معالم الموقع." } },
+      { step: 3, title: { en: "Structural Layout", ar: "تحديد الهيكل الإنشائي" }, desc: { en: "Marking and forming the layout for walls, paving, and structures.", ar: "تحديد وتجهيز مخطط الجدران والأرصفة والإنشاءات." } },
+      { step: 4, title: { en: "Construction & Installation", ar: "البناء والتركيب" }, desc: { en: "Executing paving, walls, decking, and other hardscape elements.", ar: "تنفيذ الأرصفة والجدران والأرضيات الخشبية وعناصر الأعمال الصلبة الأخرى." } },
+      { step: 5, title: { en: "Finishing Touches", ar: "اللمسات النهائية" }, desc: { en: "Sealing, jointing, and detailing for a polished look.", ar: "أعمال العزل والفواصل والتفاصيل النهائية لمظهر متكامل." } },
+      { step: 6, title: { en: "Final Handover", ar: "التسليم النهائي" }, desc: { en: "Quality checks and project handover to the client.", ar: "فحوصات الجودة وتسليم المشروع للعميل." } },
+    ],
+    why: [
+      { icon: <TeamIcon />, title: { en: "Skilled Crews", ar: "فرق متمرسة" }, desc: { en: "Trained construction teams with hands-on hardscape expertise.", ar: "فرق تنفيذ مدربة وذات خبرة عملية في الأعمال الصلبة." } },
+      { icon: <ShieldIcon />, title: { en: "Built to Last", ar: "بناء يدوم" }, desc: { en: "Durable materials and proven construction techniques.", ar: "مواد متينة وتقنيات بناء مثبتة." } },
+      { icon: <CubeIcon />, title: { en: "On-Time Delivery", ar: "التزام بالمواعيد" }, desc: { en: "Clear schedules and proactive project management.", ar: "جداول واضحة وإدارة مشاريع استباقية." } },
+      { icon: <EcoIcon />, title: { en: "Safe & Responsible", ar: "أمان ومسؤولية" }, desc: { en: "Strict safety standards and respect for the surrounding site.", ar: "معايير سلامة صارمة واحترام للموقع المحيط." } },
+    ],
+    faq: [
+      {
+        q: { en: "Do you work from our existing design plans?", ar: "هل تعملون وفق خطط التصميم الموجودة لدينا؟" },
+        a: {
+          en: "Yes, we can construct from your existing approved designs, or from our in-house Landscape Design service for a seamless handoff.",
+          ar: "نعم، يمكننا التنفيذ بناءً على تصاميمكم المعتمدة، أو من خدمة تصميم المناظر الطبيعية الخاصة بنا لانتقال سلس.",
+        },
+      },
+      {
+        q: { en: "How long does hardscape construction typically take?", ar: "كم تستغرق أعمال الأعمال الصلبة عادةً؟" },
+        a: {
+          en: "Duration depends on project size and complexity, ranging from a few days for small features to several weeks for large structures.",
+          ar: "تعتمد المدة على حجم المشروع وتعقيده، وتتراوح من بضعة أيام للعناصر الصغيرة إلى عدة أسابيع للإنشاءات الكبيرة.",
+        },
+      },
+      {
+        q: { en: "Do you provide a warranty on the work?", ar: "هل تقدمون ضماناً على الأعمال؟" },
+        a: {
+          en: "Yes, all our construction work comes with a workmanship warranty, with details specified in your project contract.",
+          ar: "نعم، تأتي جميع أعمالنا بضمان على الجودة، مع تفاصيل محددة في عقد مشروعك.",
+        },
+      },
+    ],
+  },
+
+   /* ──────────────────────────────────────────────────────────────── */
+  /*  5. Irrigation Design                                              */
+  /* ──────────────────────────────────────────────────────────────── */
+  {
+    slug: "irrigation-system",
     title: { en: "Irrigation Design", ar: "تصميم أنظمة الري" },
     description: {
       en: "Smart, efficient irrigation systems engineered to keep your landscape healthy while conserving water.",
@@ -418,7 +528,7 @@ const SERVICES: ServiceData[] = [
       en: "Our Irrigation Design service engineers water-efficient systems tailored to your site's plants, soil, and climate. We design layouts that minimize waste while ensuring every zone gets exactly what it needs.",
       ar: "تصمم خدمة تصميم أنظمة الري أنظمة فعّالة في استخدام المياه ومُكيّفة مع نباتات موقعك وتربته ومناخه. نصمم تخطيطات تقلل من الهدر وتضمن حصول كل منطقة على ما تحتاجه بالضبط.",
     },
-    hero_image: "/images/services/irrigation-design.jpg",
+    hero_image: "/images/services/irrigation-system.jpg",
     overview_image: "/images/services/irrigation-overview.jpg",
     included: [
       {
@@ -481,7 +591,7 @@ const SERVICES: ServiceData[] = [
     why: [
       { icon: <DropIcon />, title: { en: "Water Efficient", ar: "كفاءة في استهلاك المياه" }, desc: { en: "Designs that minimize waste while maximizing plant health.", ar: "تصاميم تقلل الهدر وتعزز صحة النباتات." } },
       { icon: <CubeIcon />, title: { en: "Smart Technology", ar: "تقنية ذكية" }, desc: { en: "Modern controllers and sensors for automated precision.", ar: "وحدات تحكم وأجهزة استشعار حديثة لدقة تلقائية." } },
-      { icon: <TeamIcon />, title: { en: "Specialist Engineers", ar: "مهندسون متخصصون" }, desc: { en: "Irrigation experts who understand UAE soil and climate.", ar: "خبراء ري على دراية بتربة ومناخ الإمارات." } },
+      { icon: <TeamIcon />, title: { en: "Specialist Engineers", ar: "مهندسون متخصصون" }, desc: { en: "Irrigation experts who understand UAE soil and climate.", ar: "خبراء ري على دراية بتربة ومناخ المنطقة." } },
       { icon: <EcoIcon />, title: { en: "Sustainability Focused", ar: "تركيز على الاستدامة" }, desc: { en: "Systems designed to support long-term water conservation goals.", ar: "أنظمة مصممة لدعم أهداف ترشيد المياه طويلة الأمد." } },
     ],
     faq: [
@@ -504,111 +614,6 @@ const SERVICES: ServiceData[] = [
         a: {
           en: "Basic irrigation planning is part of our Landscape Design service, while this dedicated service offers in-depth engineering for larger or more complex sites.",
           ar: "يشمل تصميم المناظر الطبيعية تخطيطاً أساسياً للري، بينما تقدم هذه الخدمة المخصصة تصميماً هندسياً متعمقاً للمواقع الأكبر أو الأكثر تعقيداً.",
-        },
-      },
-    ],
-  },
-
-  /* ──────────────────────────────────────────────────────────────── */
-  /*  5. Plant Nursery / Supply                                         */
-  /* ──────────────────────────────────────────────────────────────── */
-  {
-    slug: "plant-nursery",
-    title: { en: "Plant Nursery & Supply", ar: "المشتل وتوريد النباتات" },
-    description: {
-      en: "A wide selection of healthy, climate-suited plants and trees, sourced and cared for to thrive in the UAE.",
-      ar: "تشكيلة واسعة من النباتات والأشجار الصحية والمناسبة للمناخ، مصدرها وعناية بها لتزدهر في الإمارات.",
-    },
-    overview: {
-      en: "Our Plant Nursery & Supply service provides a curated range of trees, shrubs, and plants — all grown and maintained to thrive in the UAE's climate. Whether for a small garden or a large-scale project, we supply quality stock backed by expert guidance.",
-      ar: "تقدم خدمة المشتل وتوريد النباتات تشكيلة مختارة من الأشجار والشجيرات والنباتات — جميعها مزروعة ومُعتنى بها لتزدهر في مناخ الإمارات. سواء لحديقة صغيرة أو مشروع كبير، نوفر مخزوناً عالي الجودة مدعوماً بإرشاد متخصص.",
-    },
-    hero_image: "/images/services/plant-nursery.jpg",
-    overview_image: "/images/services/nursery-overview.jpg",
-    included: [
-      {
-        icon: <LeafIcon />,
-        title: { en: "Tree & Shrub Selection", ar: "اختيار الأشجار والشجيرات" },
-        desc: {
-          en: "A wide variety of climate-suited trees and shrubs in stock.",
-          ar: "تشكيلة واسعة من الأشجار والشجيرات المناسبة للمناخ متوفرة لدينا.",
-        },
-      },
-      {
-        icon: <PaletteIcon />,
-        title: { en: "Seasonal Flowers", ar: "أزهار موسمية" },
-        desc: {
-          en: "Fresh seasonal color options for beds, planters, and borders.",
-          ar: "خيارات ألوان موسمية طازجة للأحواض والمساحات والحدود.",
-        },
-      },
-      {
-        icon: <GridIcon />,
-        title: { en: "Bulk Supply", ar: "التوريد بالجملة" },
-        desc: {
-          en: "Large-quantity supply for commercial and public projects.",
-          ar: "توريد بكميات كبيرة للمشاريع التجارية والعامة.",
-        },
-      },
-      {
-        icon: <SearchIcon />,
-        title: { en: "Plant Health Inspection", ar: "فحص صحة النباتات" },
-        desc: {
-          en: "Every plant is inspected for health before leaving the nursery.",
-          ar: "يتم فحص كل نبتة للتأكد من صحتها قبل مغادرة المشتل.",
-        },
-      },
-      {
-        icon: <CubeIcon />,
-        title: { en: "Delivery & Handling", ar: "التوصيل والمعالجة" },
-        desc: {
-          en: "Careful transport and handling to keep plants in top condition.",
-          ar: "نقل ومعالجة بعناية للحفاظ على النباتات في أفضل حالاتها.",
-        },
-      },
-      {
-        icon: <ShieldIcon />,
-        title: { en: "Expert Guidance", ar: "إرشاد متخصص" },
-        desc: {
-          en: "Advice on selection, placement, and care for long-term success.",
-          ar: "نصائح حول الاختيار والوضع والعناية لنجاح طويل الأمد.",
-        },
-      },
-    ],
-    process: [
-      { step: 1, title: { en: "Needs Discussion", ar: "مناقشة الاحتياجات" }, desc: { en: "We discuss your project's plant and quantity requirements.", ar: "نناقش متطلبات مشروعك من النباتات والكميات." } },
-      { step: 2, title: { en: "Stock Selection", ar: "اختيار المخزون" }, desc: { en: "Choosing plants suited to your site and design.", ar: "اختيار النباتات المناسبة لموقعك وتصميمك." } },
-      { step: 3, title: { en: "Quality Inspection", ar: "فحص الجودة" }, desc: { en: "Checking each plant for health and condition.", ar: "فحص كل نبتة للتأكد من صحتها وحالتها." } },
-      { step: 4, title: { en: "Scheduling", ar: "الجدولة" }, desc: { en: "Planning delivery timing to match your project phase.", ar: "تخطيط توقيت التوصيل بما يتناسب مع مرحلة مشروعك." } },
-      { step: 5, title: { en: "Delivery", ar: "التوصيل" }, desc: { en: "Safe transport of plants to your site.", ar: "نقل آمن للنباتات إلى موقعك." } },
-      { step: 6, title: { en: "Aftercare Advice", ar: "نصائح العناية اللاحقة" }, desc: { en: "Guidance to help new plants establish successfully.", ar: "إرشادات لمساعدة النباتات الجديدة على التأصل بنجاح." } },
-    ],
-    why: [
-      { icon: <LeafIcon />, title: { en: "Climate-Suited Stock", ar: "مخزون مناسب للمناخ" }, desc: { en: "Plants chosen and grown to thrive in UAE conditions.", ar: "نباتات مختارة ومزروعة لتزدهر في ظروف الإمارات." } },
-      { icon: <ShieldIcon />, title: { en: "Healthy Guarantee", ar: "ضمان الصحة" }, desc: { en: "Every plant inspected before delivery for top condition.", ar: "كل نبتة مفحوصة قبل التوصيل لضمان أفضل حالة." } },
-      { icon: <GridIcon />, title: { en: "Wide Selection", ar: "تشكيلة واسعة" }, desc: { en: "From small shrubs to mature trees, all in one place.", ar: "من الشجيرات الصغيرة إلى الأشجار الكبيرة، كل ذلك في مكان واحد." } },
-      { icon: <TeamIcon />, title: { en: "Expert Advice", ar: "نصائح الخبراء" }, desc: { en: "Our team helps you choose the right plants for your space.", ar: "يساعدك فريقنا في اختيار النباتات المناسبة لمساحتك." } },
-    ],
-    faq: [
-      {
-        q: { en: "Can I visit the nursery to choose plants in person?", ar: "هل يمكنني زيارة المشتل لاختيار النباتات شخصياً؟" },
-        a: {
-          en: "Yes, visits can be arranged so you can see and select plants directly with guidance from our team.",
-          ar: "نعم، يمكن ترتيب زيارات لرؤية واختيار النباتات مباشرة مع إرشاد من فريقنا.",
-        },
-      },
-      {
-        q: { en: "Do you supply for large commercial projects?", ar: "هل توردون للمشاريع التجارية الكبيرة؟" },
-        a: {
-          en: "Yes, we handle bulk orders for commercial, public, and developer projects of all sizes.",
-          ar: "نعم، نتعامل مع الطلبات الكبيرة للمشاريع التجارية والعامة ومشاريع المطورين بجميع أحجامها.",
-        },
-      },
-      {
-        q: { en: "What if a plant doesn't survive after delivery?", ar: "ماذا لو لم تنجُ النبتة بعد التوصيل؟" },
-        a: {
-          en: "We provide aftercare guidance, and replacement options can be discussed depending on the cause and terms agreed at purchase.",
-          ar: "نقدم إرشادات للعناية اللاحقة، ويمكن مناقشة خيارات الاستبدال حسب السبب والشروط المتفق عليها عند الشراء.",
         },
       },
     ],
@@ -935,6 +940,13 @@ function EcoIcon() {
   return (
     <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253" />
+    </svg>
+  );
+}
+function CheckIcon() {
+  return (
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
     </svg>
   );
 }

@@ -9,17 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand palette
         forest: {
           50:  '#fafbf4',
           100: '#f2f4e6',
           200: '#e0e8ca',
           300: '#8eaf58',
-          400: '#8eaf58',  // ← اللون الأساسي 1
+          400: '#8eaf58',
           500: '#8eaf58',
           600: '#8eaf58',
           700: '#8eaf58',
-          800: '#8eaf58',  // ← اللون الأساسي 2
+          800: '#8eaf58',
           900: '#030303ff',
           950: '#182315',
         },
@@ -73,6 +72,7 @@ const config: Config = {
         "fade-up":   "fadeUp 0.6s ease forwards",
         "fade-in":   "fadeIn 0.5s ease forwards",
         "shimmer":   "shimmer 1.5s infinite",
+        "marquee":   "marquee 18s linear infinite",
       },
       keyframes: {
         fadeUp: {
@@ -86,6 +86,10 @@ const config: Config = {
         shimmer: {
           "0%":   { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
+        },
+        marquee: {
+          "0%":   { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       backgroundImage: {

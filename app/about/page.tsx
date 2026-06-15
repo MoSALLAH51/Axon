@@ -29,13 +29,13 @@ const STATS = {
     { value: "2010",  label: "Year Founded" },
     { value: "50+",   label: "Team Members" },
     { value: "250+",  label: "Projects Completed" },
-    { value: "7",     label: "Emirates Served" },
+    { value: "2", label: "Countries Served" },
   ],
   ar: [
     { value: "2010",  label: "سنة التأسيس" },
     { value: "50+",   label: "أعضاء الفريق" },
     { value: "250+",  label: "مشروع منجز" },
-    { value: "7",     label: "إمارات نخدمها" },
+    { value: "2", label: "دول نخدمها" },
   ],
 };
 
@@ -167,7 +167,7 @@ export default function AboutPage() {
               </span>
               <p className={cn("font-display text-2xl md:text-3xl text-sand-50 leading-snug", isRTL && "text-right")}>
                 {locale === "ar"
-                  ? "أن نكون المرجع الأول في تصميم وتطوير البيئات الخارجية في الإمارات والمنطقة."
+                  ? "أن نكون المرجع الأول في تصميم وتطوير البيئات الخارجية في المنطقة."
                   : "To be the leading reference in designing and developing outdoor environments across the UAE and the region."}
               </p>
             </div>
@@ -213,26 +213,34 @@ export default function AboutPage() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Decorative illustration                                             */
-/* ------------------------------------------------------------------ */
 function AboutIllustration() {
   return (
-    <svg className="w-72 h-72 text-forest-300 opacity-60" fill="none" stroke="currentColor" strokeWidth={1.2} viewBox="0 0 140 160" aria-hidden="true">
+    <svg
+      className="w-72 h-72 text-forest-300 opacity-60"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.2}
+      viewBox="0 0 140 160"
+      aria-hidden="true"
+    >
       <path d="M30 140 C20 100, 10 60, 45 30 C60 20, 70 40, 55 70 C45 90, 35 115, 30 140Z" />
       <line x1="30" y1="140" x2="50" y2="50" strokeLinecap="round" />
-      <path d="M42 90 C52 75, 68 80, 62 95 C56 108, 42 100, 42 90Z" />
-      <line x1="42" y1="90" x2="58" y2="102" strokeLinecap="round" />
+
+
       <path d="M95 135 C88 95, 82 55, 112 28 C125 18, 135 38, 120 65 C110 85, 98 110, 95 135Z" />
       <line x1="95" y1="135" x2="112" y2="48" strokeLinecap="round" />
-      <path d="M70 20 C78 8, 92 12, 87 26 C82 38, 70 32, 70 20Z" />
-      <line x1="70" y1="20" x2="80" y2="38" strokeLinecap="round" />
-      <path d="M85 14 C92 4, 104 10, 99 22" strokeLinecap="round" />
-      <line x1="15" y1="148" x2="125" y2="148" strokeLinecap="round" strokeOpacity="0.4" />
+
+      <line
+        x1="15"
+        y1="148"
+        x2="125"
+        y2="148"
+        strokeLinecap="round"
+        strokeOpacity="0.4"
+      />
     </svg>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  Navigation card icons                                               */
 /* ------------------------------------------------------------------ */

@@ -8,13 +8,13 @@ import { LocaleProvider } from "@/components/providers/LocaleProvider";
 
 export const metadata: Metadata = {
   title: {
-    default: "AXON Landscape — Premium Landscape Architecture, UAE",
+    default: "AXON Landscape — Premium Landscape Architecture, SYR",
     template: "%s | AXON Landscape",
   },
   description:
     "AXON Landscape delivers world-class landscape architecture, softscaping, hardscaping, and nursery services across the UAE.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_WEBSITE_URL ?? "https://axonlandscape.com"),
-  keywords: ["landscape architecture", "UAE", "landscape design", "softscaping", "hardscaping", "nursery", "Sharjah"],
+  keywords: ["landscape architecture", "SYR", "landscape design", "softscaping", "hardscaping", "nursery", "Sharjah"],
   authors: [{ name: "AXON Landscape" }],
   creator: "AXON Landscape",
   openGraph: {

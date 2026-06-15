@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -24,8 +26,8 @@ const QUICK_LINKS = {
 const CONTACT = {
   en: {
     title:    "Contact Info",
-    address1: "UAE - Abu Dhabi",
-    address2: "Kamala Tower - 1602",
+    address1: "Al-Muhafaza, Aleppo,",
+    address2: "Syria.",
     privacy:  "Privacy Policy",
     terms:    "Terms & Conditions",
     rights:   "All Rights Reserved.",
@@ -34,8 +36,8 @@ const CONTACT = {
   },
   ar: {
     title:    "معلومات التواصل",
-    address1: "الإمارات - أبوظبي",
-    address2: "برج كمالا - 1602",
+    address1: "الجمهورية العربية السورية",
+    address2: "محافظة حلب - حي المحافظة",
     privacy:  "سياسة الخصوصية",
     terms:    "الشروط والأحكام",
     rights:   "جميع الحقوق محفوظة.",
@@ -58,29 +60,21 @@ export function Footer() {
       <Container>
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 py-16">
 
-          {/* ── Brand ── */}
-          <div className="flex flex-col gap-5">
-            <Link href="/" className="inline-block">
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-5xl font-bold text-white tracking-tight">
-                  AXON
-                </span>
-                <span className="text-[11px] font-body tracking-[0.35em] uppercase text-white/80 mt-0.5 ml-0.5">
-                  LANDSCAPE
-                </span>
-                <div className="flex items-center gap-1.5 mt-1.5">
-                  <span className="h-px flex-1 bg-white/30" />
-                  <span className="text-[9px] tracking-widest text-white/60 font-light">
-                    ─── أكسون للتنسيق ───
-                  </span>
-                  <span className="h-px flex-1 bg-white/30" />
-                </div>
-              </div>
-            </Link>
+{/* ── Brand ── */}
+<div className="flex flex-col gap-5">
+  <Link href="/" className="inline-block">
+    <Image
+      src="/images/logo_white.png"
+      alt="Axon Landscape"
+      width={100}
+      height={200}
+className="h-40 w-auto object-contain brightness-0 invert"
+    />
+  </Link>
 
-            <p className="font-body text-sm text-white/75 leading-relaxed max-w-[220px]">
-              {t.tagline}
-            </p>
+  <p className="font-body text-sm text-white/75 leading-relaxed max-w-[220px]">
+    {t.tagline}
+  </p>
 
             {/* Social icons */}
             <div className="flex gap-3 mt-1">
@@ -135,10 +129,7 @@ export function Footer() {
                   </svg>
                 </div>
                 <div className="flex flex-col gap-0.5" dir="ltr">
-                  <a href="tel:+97126676877" className="hover:text-white transition">+971 2 667 6877</a>
-                  <a href="tel:+97126282444" className="hover:text-white transition">+971 2 628 2444</a>
-                  <a href="tel:+97126282999" className="hover:text-white transition">+971 2 628 2999</a>
-                  <a href="tel:+971529987406" className="hover:text-white transition">+971 52 998 7406</a>
+                 <a href="tel:+963214731300" className="hover:text-white transition">+963 • 21 • 473 1300</a>
                 </div>
               </div>
 

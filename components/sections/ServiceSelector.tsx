@@ -29,8 +29,8 @@ const SERVICES: Service[] = [
     label: { en: "Landscape Design",       ar: "تصميم المناظر الطبيعية" },
     tag:   { en: "Design",                 ar: "التصميم" },
     desc: {
-      en: "Creative and functional outdoor environments — from concept sketches to detailed technical drawings — tailored to your site, vision, and the UAE climate.",
-      ar: "بيئات خارجية إبداعية ووظيفية — من الرسومات الأولية حتى المخططات التقنية التفصيلية — مصممة خصيصاً لموقعك ورؤيتك ومناخ الإمارات.",
+      en: "Creative and functional outdoor environments — from concept sketches to detailed technical drawings — tailored to your site, vision, and the area climate.",
+      ar: "بيئات خارجية إبداعية ووظيفية — من الرسومات الأولية حتى المخططات التقنية التفصيلية — مصممة خصيصاً لموقعك ورؤيتك ومناخ المنطة.",
     },
     image:    "/images/services/landscape-design.jpg",
     features: {
@@ -58,11 +58,11 @@ const SERVICES: Service[] = [
     tag:   { en: "Nursery",                ar: "المشتل" },
     desc: {
       en: "A curated selection of trees, shrubs, palms, and flowering plants — all sourced and acclimated for the UAE environment.",
-      ar: "تشكيلة مختارة من الأشجار والشجيرات والنخيل والنباتات المزهرة — مستوردة ومأقلمة خصيصاً لبيئة الإمارات.",
+      ar: "تشكيلة مختارة من الأشجار والشجيرات والنخيل والنباتات المزهرة — مستوردة ومأقلمة خصيصاً لبيئة المنطة.",
     },
     image:    "/images/services/nursery.jpg",
     features: {
-      en: ["UAE-adapted plants", "Native species", "Indoor plants", "Rare varieties", "Expert advice", "Delivery & install"],
+      en: ["Area-adapted plants", "Native species", "Indoor plants", "Rare varieties", "Expert advice", "Delivery & install"],
       ar: ["نباتات مأقلمة", "أنواع محلية", "نباتات داخلية", "أصناف نادرة", "استشارة متخصصة", "توصيل وتركيب"],
     },
   },
@@ -192,23 +192,23 @@ export function ServiceSelector() {
           {SERVICES.map((svc, i) => {
             const isActive = i === activeIdx;
             return (
-              <button
-                key={svc.slug}
-                onClick={() => handleSelect(i)}
-                aria-selected={isActive}
-                className={cn(
-                  "group flex items-center gap-3 w-full text-left",
-                  "px-5 py-3.5 md:px-6 md:py-[13px]",
-                  "relative transition-colors duration-200",
-                  "text-[13.5px] font-normal whitespace-nowrap md:whitespace-normal",
-                  isActive
-                    ? "text-white font-medium"
-                    : "text-white/50 hover:text-white/80",
-                  // mobile: column of horizontal tabs
-                  "flex-col md:flex-row items-center md:items-center",
-                  "min-w-[88px] md:min-w-0",
-                )}
-              >
+<button
+  key={svc.slug}
+  onClick={() => handleSelect(i)}
+  aria-selected={isActive}
+  className={cn(
+    "group flex items-center gap-3 text-left",
+    "px-3 py-3 md:px-6 md:py-[13px]",
+    "relative transition-colors duration-200",
+    "text-[13.5px] font-normal",
+    isActive
+      ? "text-white font-medium"
+      : "text-white/50 hover:text-white/80",
+    // mobile: column of horizontal tabs, fixed width, allow wrapping
+    "flex-col md:flex-row items-center md:items-center",
+    "w-[110px] shrink-0 md:w-full md:shrink",
+  )}
+>
                 {/* Active indicator — bottom bar on mobile, left bar on desktop */}
                 {isActive && (
                   <span

@@ -171,24 +171,31 @@ export default function ProjectsPage() {
 /* ------------------------------------------------------------------ */
 function ProjectsIllustration() {
   return (
-    <svg className="w-72 h-72 text-forest-300 opacity-60" fill="none" stroke="currentColor" strokeWidth={1.2} viewBox="0 0 140 160" aria-hidden="true">
+    <svg
+      className="w-72 h-72 text-forest-300 opacity-60"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.2}
+      viewBox="0 0 140 160"
+      aria-hidden="true"
+    >
       <rect x="12" y="20" width="48" height="36" rx="3" />
       <rect x="68" y="20" width="48" height="36" rx="3" />
       <rect x="12" y="64" width="48" height="36" rx="3" />
       <rect x="68" y="64" width="48" height="36" rx="3" />
+
       <line x1="20" y1="46" x2="50" y2="46" strokeLinecap="round" strokeOpacity="0.5" />
       <line x1="20" y1="50" x2="40" y2="50" strokeLinecap="round" strokeOpacity="0.4" />
       <line x1="76" y1="46" x2="106" y2="46" strokeLinecap="round" strokeOpacity="0.5" />
       <line x1="76" y1="50" x2="96" y2="50" strokeLinecap="round" strokeOpacity="0.4" />
+
       <line x1="20" y1="90" x2="50" y2="90" strokeLinecap="round" strokeOpacity="0.5" />
       <line x1="20" y1="94" x2="40" y2="94" strokeLinecap="round" strokeOpacity="0.4" />
       <line x1="76" y1="90" x2="106" y2="90" strokeLinecap="round" strokeOpacity="0.5" />
       <line x1="76" y1="94" x2="96" y2="94" strokeLinecap="round" strokeOpacity="0.4" />
+
       <rect x="12" y="108" width="48" height="22" rx="3" />
       <rect x="68" y="108" width="48" height="22" rx="3" />
-      <path d="M106 8 C116 -2, 130 4, 124 18 C118 30, 106 24, 106 8Z" />
-      <line x1="106" y1="8" x2="118" y2="30" strokeLinecap="round" />
-      <path d="M118 2 C126 -8, 138 0, 132 12" strokeLinecap="round" />
     </svg>
   );
 }

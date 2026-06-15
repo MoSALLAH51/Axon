@@ -158,7 +158,65 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
           </div>
         </Container>
       </section>
+{/* ── JOINT VENTURE NOTICE ── */}
+<div className="bg-forest-700 border-b border-forest-800">
+  <Container>
+    <div className={cn("flex items-center justify-center gap-3 py-3.5", isRTL && "flex-row-reverse")}>
+      {/* Dot decorator */}
+      <span className="w-1.5 h-1.5 rounded-full bg-forest-300 shrink-0" />
+      <p className="text-sm text-white font-medium tracking-wide">
+        {locale === "ar"
+          ? "تعد شركة اكسون لاندسكيب مشروعاً مشتركاً مع شركة الحلم الأخضر الزراعية في الإمارات العربية المتحدة"
+          : "Axon Landscape is a Joint Venture with Green Dream Agricultural in UAE"}
+      </p>
+      <span className="w-1.5 h-1.5 rounded-full bg-forest-300 shrink-0" />
+    </div>
+  </Container>
+</div>
+{/* ── PARTNER LOGOS ── */}
+{/* ── PARTNER LOGOS ── */}
+<div className="bg-white border-b border-sand-200 py-8 overflow-hidden">
+  <style>{`
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      animation: marquee 20s linear infinite;
+    }
+    @media (max-width: 640px) {
+      .marquee-track {
+        animation-duration: 12s;
+      }
+    }
+  `}</style>
 
+  <Container>
+    <p className="text-center text-[10px] font-semibold tracking-[0.25em] uppercase text-charcoal-400 mb-6">
+      {locale === "ar" ? "شركات المجموعة" : "Our Group Companies"}
+    </p>
+  </Container>
+
+  <div className="relative overflow-hidden">
+    <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+    <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+    <div className="marquee-track flex w-max gap-8 sm:gap-16">
+      {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((n, i) => (
+        <div key={i} className="flex items-center justify-center shrink-0 h-12 w-24 sm:h-16 sm:w-36">
+          <Image
+            src={`/images/companies/${n}.png`}
+            alt={i < 5 ? `Company ${n}` : ""}
+            aria-hidden={i >= 5}
+            width={144}
+            height={64}
+            className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-12 sm:max-h-16 w-auto"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
       {/* ── FEATURES ── */}
       <section className="bg-white border-b border-sand-200">
         <Container>
@@ -310,53 +368,9 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
 
               <div className="flex flex-col gap-4 mt-2">
 
-                {/* Phones */}
-                <div className="flex items-start gap-3 text-sm text-charcoal-700">
-                  <div className="w-9 h-9 rounded-full bg-forest-50 border border-forest-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-forest-700" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                    </svg>
-                  </div>
-                  <div className="flex flex-col gap-0.5" dir="ltr">
-                    <a href="tel:+97126676877" className="hover:text-forest-700 transition">+971 2 667 6877</a>
-                    <a href="tel:+97126282444" className="hover:text-forest-700 transition">+971 2 628 2444</a>
-                    <a href="tel:+97126282999" className="hover:text-forest-700 transition">+971 2 628 2999</a>
-                    <a href="tel:+971529987406" className="hover:text-forest-700 transition">+971 52 998 7406</a>
-                  </div>
-                </div>
 
-                {/* Email */}
-                <a href="mailto:info@axonlandscape.com" className="flex items-center gap-3 text-sm text-charcoal-700 hover:text-forest-700 transition">
-                  <div className="w-9 h-9 rounded-full bg-forest-50 border border-forest-100 flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4 text-forest-700" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                    </svg>
-                  </div>
-                  info@axonlandscape.com
-                </a>
 
-                {/* Address */}
-                <div className="flex items-start gap-3 text-sm text-charcoal-700">
-                  <div className="w-9 h-9 rounded-full bg-forest-50 border border-forest-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-forest-700" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                    </svg>
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    {locale === "ar" ? (
-                      <>
-                        <span>الإمارات - أبوظبي</span>
-                        <span>برج كمالا - 1602</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>UAE - Abu Dhabi</span>
-                        <span>Kamala Tower - 1602</span>
-                      </>
-                    )}
-                  </div>
-                </div>
+
 
               </div>
             </div>
@@ -369,8 +383,7 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
             {/* Map */}
             <div className="relative h-full min-h-[340px] rounded-2xl overflow-hidden shadow-md border border-sand-200">
               <iframe
-                src="https://maps.google.com/maps?q=Kamala%20Tower%20Abu%20Dhabi&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                width="100%"
+                src="https://maps.google.com/maps?q=Al-Muhafaza%20Aleppo%20Syria&t=&z=14&ie=UTF8&iwloc=&output=embed"                width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: "340px" }}
                 loading="lazy"

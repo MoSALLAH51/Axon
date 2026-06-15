@@ -23,7 +23,7 @@ const T = {
     reassurance:    "We respond to all inquiries within",
     hours:          "24 hours",
     reassurance2:   ". Your information is kept strictly confidential.",
-    address:        "UAE - Abu Dhabi, Kamala Tower - 1602",
+    address:        "Al-Muhafaza, Aleppo, Syria.",
     addressLabel:   "Address",
     emailLabel:     "Email",
     phoneLabel:     "Phone",
@@ -41,7 +41,7 @@ const T = {
     reassurance:    "نرد على جميع الاستفسارات خلال",
     hours:          "24 ساعة",
     reassurance2:   ". تظل معلوماتك سرية تماماً.",
-    address:        "الإمارات - أبوظبي، برج كمالا - 1602",
+    address:        "الجمهورية العربية السورية، محافظة حلب - حي المحافظة",
     addressLabel:   "العنوان",
     emailLabel:     "البريد الإلكتروني",
     phoneLabel:     "الهاتف",
@@ -50,10 +50,7 @@ const T = {
 };
 
 const FALLBACK_PHONES = [
-  { href: "tel:+97126676877", label: "+971 2 667 6877" },
-  { href: "tel:+97126282444", label: "+971 2 628 2444" },
-  { href: "tel:+97126282999", label: "+971 2 628 2999" },
-  { href: "tel:+971529987406", label: "+971 52 998 7406" },
+  { href: "tel:+963214731300", label: "+963 • 21 • 473 1300" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -176,7 +173,7 @@ export default function ContactPage() {
                 </p>
                 
                 <a
-                  href="https://maps.google.com/maps?q=Kamala+Tower+Abu+Dhabi"
+                  href="https://maps.google.com/maps?q=Al-Muhafaza+Aleppo+Syria"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
@@ -244,23 +241,22 @@ function MapPinIcon() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Decorative illustration                                             */
-/* ------------------------------------------------------------------ */
 function ContactIllustration() {
   return (
-    <svg className="w-72 h-72 text-forest-300 opacity-60" fill="none" stroke="currentColor" strokeWidth={1.2} viewBox="0 0 140 160" aria-hidden="true">
+    <svg
+      className="w-72 h-72 text-forest-300 opacity-60"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.2}
+      viewBox="0 0 140 160"
+      aria-hidden="true"
+    >
       <rect x="15" y="45" width="95" height="68" rx="5" />
       <path d="M15 45 L62 85 L110 45" strokeLinejoin="round" />
       <line x1="15" y1="113" x2="48" y2="82" strokeLinecap="round" />
       <line x1="110" y1="113" x2="77" y2="82" strokeLinecap="round" />
       <line x1="38" y1="98" x2="62" y2="98" strokeLinecap="round" strokeOpacity="0.5" />
       <line x1="38" y1="106" x2="55" y2="106" strokeLinecap="round" strokeOpacity="0.5" />
-      <path d="M106 20 C116 10, 130 16, 124 30 C118 42, 106 36, 106 20Z" />
-      <line x1="106" y1="20" x2="118" y2="42" strokeLinecap="round" />
-      <path d="M118 14 C126 4, 138 12, 132 24" strokeLinecap="round" />
-      <circle cx="25" cy="32" r="3" strokeOpacity="0.4" />
-      <circle cx="35" cy="24" r="2" strokeOpacity="0.3" />
     </svg>
   );
 }
