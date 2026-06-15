@@ -207,22 +207,29 @@ export default function LicensesPage() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Decorative illustration                                             */
-/* ------------------------------------------------------------------ */
 function ClipboardIllustration() {
   return (
-    <svg className="w-72 h-72 text-forest-300 opacity-60" fill="none" stroke="currentColor" strokeWidth={1.2} viewBox="0 0 120 140" aria-hidden="true">
+    <svg
+      className="w-72 h-72 text-forest-300 opacity-60"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.2}
+      viewBox="0 0 120 140"
+      aria-hidden="true"
+    >
       <rect x="15" y="20" width="80" height="100" rx="6" />
       <rect x="38" y="12" width="34" height="16" rx="4" />
+
       <line x1="28" y1="52" x2="82" y2="52" strokeLinecap="round" />
       <line x1="28" y1="65" x2="82" y2="65" strokeLinecap="round" />
       <line x1="28" y1="78" x2="60" y2="78" strokeLinecap="round" />
+
       <circle cx="76" cy="96" r="16" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="m68 96 5 6 10-13" />
-      <path d="M95 30 C105 20, 118 25, 112 38 C106 50, 95 45, 95 30Z" strokeLinejoin="round" />
-      <path d="M104 38 C114 28, 124 36, 118 48" strokeLinecap="round" />
-      <path d="M95 30 L104 50" strokeLinecap="round" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m68 96 5 6 10-13"
+      />
     </svg>
   );
 }

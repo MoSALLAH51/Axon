@@ -240,20 +240,24 @@ export default function CertificatesPage() {
 /* ------------------------------------------------------------------ */
 function MedalIllustration() {
   return (
-    <svg className="w-72 h-72 text-forest-300 opacity-60" fill="none" stroke="currentColor" strokeWidth={1.2} viewBox="0 0 140 160" aria-hidden="true">
+    <svg
+      className="w-72 h-72 text-forest-300 opacity-60"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.2}
+      viewBox="0 0 140 160"
+      aria-hidden="true"
+    >
       <path d="M55 20 L45 55 L70 45 L55 20Z" />
       <path d="M85 20 L95 55 L70 45 L85 20Z" />
+
       <circle cx="70" cy="95" r="38" />
       <circle cx="70" cy="95" r="30" />
+
       <path d="M70 70 L74 83 L88 83 L77 91 L81 104 L70 97 L59 104 L63 91 L52 83 L66 83 Z" />
-      <path d="M105 18 C116 8, 130 14, 124 28 C118 40, 105 35, 105 18Z" />
-      <path d="M114 28 C126 16, 138 24, 130 38" strokeLinecap="round" />
-      <path d="M105 18 L116 42" strokeLinecap="round" />
-      <path d="M118 12 C126 4, 138 10, 133 22" strokeLinecap="round" />
     </svg>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  Generic icon: recolors a black-source SVG via CSS mask so it        */
 /*  inherits `currentColor` from its parent (e.g. text-forest-700).     */

@@ -27,7 +27,8 @@ const T = {
     addressLabel:   "Address",
     emailLabel:     "Email",
     phoneLabel:     "Phone",
-    hoursLabel:     "Working Hours",
+    hoursLabel:     "Working Days",
+    workingHours: "Sat – Thu",
   },
   ar: {
     badge:          "تواصل معنا",
@@ -45,7 +46,9 @@ const T = {
     addressLabel:   "العنوان",
     emailLabel:     "البريد الإلكتروني",
     phoneLabel:     "الهاتف",
-    hoursLabel:     "ساعات العمل",
+    hoursLabel:     "ايام العمل",
+    workingHours: "السبت – الخميس",
+
   },
 };
 
@@ -162,7 +165,20 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </li>
-
+{/* Working Hours */}
+<li className={cn("flex gap-4", isRTL && "flex-row-reverse")}>
+  <div className="w-11 h-11 rounded-full bg-forest-50 border border-forest-200 flex items-center justify-center shrink-0 text-forest-700">
+    <ClockIcon />
+  </div>
+  <div className="pt-0.5">
+    <p className={cn("font-body text-[10px] font-semibold tracking-[0.15em] uppercase text-charcoal-400 mb-1", isRTL && "text-right")}>
+      {t.hoursLabel}
+    </p>
+    <p className={cn("font-body text-sm text-charcoal-700", isRTL && "text-right")}>
+      {t.workingHours}
+    </p>
+  </div>
+</li>
                 </ul>
               </div>
 
@@ -257,6 +273,14 @@ function ContactIllustration() {
       <line x1="110" y1="113" x2="77" y2="82" strokeLinecap="round" />
       <line x1="38" y1="98" x2="62" y2="98" strokeLinecap="round" strokeOpacity="0.5" />
       <line x1="38" y1="106" x2="55" y2="106" strokeLinecap="round" strokeOpacity="0.5" />
+    </svg>
+  );
+}
+function ClockIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
     </svg>
   );
 }

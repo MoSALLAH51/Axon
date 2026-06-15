@@ -174,21 +174,20 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
   </Container>
 </div>
 {/* ── PARTNER LOGOS ── */}
-{/* ── PARTNER LOGOS ── */}
 <div className="bg-white border-b border-sand-200 py-8 overflow-hidden">
   <style>{`
     @keyframes marquee {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
-    .marquee-track {
-      animation: marquee 20s linear infinite;
-    }
-    @media (max-width: 640px) {
-      .marquee-track {
-        animation-duration: 12s;
-      }
-    }
+.marquee-track {
+  animation: marquee 25s linear infinite;
+}
+@media (max-width: 640px) {
+  .marquee-track {
+    animation-duration: 16s;
+  }
+}
   `}</style>
 
   <Container>
@@ -202,15 +201,14 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
     <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
     <div className="marquee-track flex w-max gap-8 sm:gap-16">
-      {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((n, i) => (
-        <div key={i} className="flex items-center justify-center shrink-0 h-12 w-24 sm:h-16 sm:w-36">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <div key={n} className="flex items-center justify-center shrink-0 h-20 w-32 sm:h-24 sm:w-48">
           <Image
             src={`/images/companies/${n}.png`}
-            alt={i < 5 ? `Company ${n}` : ""}
-            aria-hidden={i >= 5}
-            width={144}
-            height={64}
-            className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-12 sm:max-h-16 w-auto"
+            alt={`Company ${n}`}
+            width={192}
+            height={96}
+            className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-20 sm:max-h-24 w-auto"
           />
         </div>
       ))}

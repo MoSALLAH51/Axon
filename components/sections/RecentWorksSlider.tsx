@@ -9,18 +9,16 @@ import { cn } from "@/lib/utils";
 
 const RECENT_WORKS = {
   en: [
-    { id: "1", title: "Villa Garden – Dubai Hills",   slug: "villa-garden-dubai-hills",   image: "/images/projects/project-1.jpg" },
-    { id: "2", title: "Corporate Campus – Abu Dhabi", slug: "corporate-campus-abu-dhabi", image: "/images/projects/project-2.jpg" },
-    { id: "3", title: "Rooftop Terrace – Sharjah",    slug: "rooftop-terrace-sharjah",    image: "/images/projects/project-3.jpg" },
-    { id: "4", title: "Public Park – Al Ain",         slug: "public-park-al-ain",         image: "/images/projects/project-4.jpg" },
-    { id: "5", title: "Residential Compound – RAK",   slug: "residential-compound-rak",   image: "/images/projects/project-5.jpg" },
+    { id: "1", title: "Villa Garden Project",     slug: "villa-garden-project",     image: "/images/projects/project-1.jpg" },
+    { id: "2", title: "Corporate Campus",          slug: "corporate-campus",          image: "/images/projects/project-2.jpg" },
+    { id: "3", title: "Rooftop Terrace",           slug: "rooftop-terrace",           image: "/images/projects/project-3.jpg" },
+    { id: "4", title: "Public Park",               slug: "public-park",               image: "/images/projects/project-4.jpg" },
   ],
   ar: [
-    { id: "1", title: "حديقة فيلا – دبي هيلز",       slug: "villa-garden-dubai-hills",   image: "/images/projects/project-1.jpg" },
-    { id: "2", title: "حرم شركة – أبوظبي",           slug: "corporate-campus-abu-dhabi", image: "/images/projects/project-2.jpg" },
-    { id: "3", title: "تراس السطح – الشارقة",        slug: "rooftop-terrace-sharjah",    image: "/images/projects/project-3.jpg" },
-    { id: "4", title: "حديقة عامة – العين",          slug: "public-park-al-ain",         image: "/images/projects/project-4.jpg" },
-    { id: "5", title: "مجمع سكني – رأس الخيمة",      slug: "residential-compound-rak",   image: "/images/projects/project-5.jpg" },
+    { id: "1", title: "حديقة فيلا",       slug: "villa-garden-project",     image: "/images/projects/project-1.jpg" },
+    { id: "2", title: "حرم شركة",         slug: "corporate-campus",          image: "/images/projects/project-2.jpg" },
+    { id: "3", title: "تراس السطح",       slug: "rooftop-terrace",           image: "/images/projects/project-3.jpg" },
+    { id: "4", title: "حديقة عامة",       slug: "public-park",               image: "/images/projects/project-4.jpg" },
   ],
 };
 

@@ -13,14 +13,14 @@ import { cn } from "@/lib/utils";
 // ─── Mock Data ────────────────────────────────────────────────────────────────
 
 const MOCK_PROJECT = {
-  title_en: "Al Barsha Villa Garden",
-  title_ar: "حديقة فيلا البرشاء",
-  location_en: "Al Barsha, Dubai",
-  location_ar: "البرشاء، دبي",
+  title_en: "Riverside Park",
+  title_ar: "حديقة ريفرسايد",
+  location_en: "City Park",
+  location_ar: "الحديقة المدينية",
   description_en:
-    "A lush residential garden designed to blend seamlessly with the villa's contemporary architecture. The project combines native drought-resistant plants with a custom irrigation system, creating a sustainable yet visually rich outdoor living space. Shaded seating areas, a central water feature, and layered planting beds deliver year-round interest while respecting the UAE climate.",
+    "A lush garden designed to blend seamlessly with its surrounding architecture. The project combines native drought-resistant plants with a custom irrigation system, creating a sustainable yet visually rich outdoor space. Shaded seating areas, a central water feature, and layered planting beds deliver year-round interest while respecting the local climate.",
   description_ar:
-    "حديقة سكنية غنّاء صُممت لتتناغم بسلاسة مع الطابع المعماري المعاصر للفيلا. يجمع المشروع بين النباتات المحلية المتحملة للجفاف ونظام ري مخصص، لخلق مساحة خارجية مستدامة وغنية بصرياً. تمنح مناطق الجلوس المظللة، والنافورة المركزية، وأحواض الزراعة المتدرجة طابعاً مميزاً على مدار العام مع احترام مناخ الإمارات.",
+    "حديقة غنّاء صُممت لتتناغم بسلاسة مع الطابع المعماري المحيط بها. يجمع المشروع بين النباتات المحلية المتحملة للجفاف ونظام ري مخصص، لخلق مساحة خارجية مستدامة وغنية بصرياً. تمنح مناطق الجلوس المظللة، والنافورة المركزية، وأحواض الزراعة المتدرجة طابعاً مميزاً على مدار العام مع احترام المناخ المحلي.",
   year: 2023,
   area: "1,200 sqm",
   area_ar: "1,200 متر مربع",
@@ -28,8 +28,8 @@ const MOCK_PROJECT = {
   client_ar: "عميل خاص",
   cover_image: {
     url: "/images/projects/project_1_1.png",
-    alt_en: "Al Barsha Villa Garden — main view",
-    alt_ar: "حديقة فيلا البرشاء — المنظر الرئيسي",
+    alt_en: "Riverside Park — main view",
+    alt_ar: "حديقة ريفرسايد — المنظر الرئيسي",
   },
   gallery: [
     { id: 1, url: "/images/projects/project_2_1.png", alt_en: "Garden seating area",   alt_ar: "منطقة الجلوس" },
