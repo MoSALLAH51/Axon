@@ -127,7 +127,7 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
         <Container className="relative z-10 flex min-h-screen items-center">
           <div className={cn("max-w-2xl pt-24 md:pt-32", isRTL && "text-right")}>
             <span className="inline-block mb-5 text-xs font-semibold tracking-[0.25em] uppercase text-forest-300">
-              {locale === "ar" ? "أكسون للمناظر الطبيعية · الإمارات" : "AXON LANDSCAPE · UAE"}
+              {locale === "ar" ? "أكسون للمناظر الطبيعية · سوريا" : "AXON LANDSCAPE · SYR"}
             </span>
 
             <h1 className="font-display text-5xl md:text-7xl leading-[1.05] text-white text-balance">
@@ -158,28 +158,14 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
           </div>
         </Container>
       </section>
-{/* ── JOINT VENTURE NOTICE ── */}
-<div className="bg-forest-700 border-b border-forest-800">
-  <Container>
-    <div className={cn("flex items-center justify-center gap-3 py-3.5", isRTL && "flex-row-reverse")}>
-      {/* Dot decorator */}
-      <span className="w-1.5 h-1.5 rounded-full bg-forest-300 shrink-0" />
-      <p className="text-sm text-white font-medium tracking-wide">
-        {locale === "ar"
-          ? "تعد شركة اكسون لاندسكيب مشروعاً مشتركاً مع شركة الحلم الأخضر الزراعية في الإمارات العربية المتحدة"
-          : "Axon Landscape is a Joint Venture with Green Dream Agricultural in UAE"}
-      </p>
-      <span className="w-1.5 h-1.5 rounded-full bg-forest-300 shrink-0" />
-    </div>
-  </Container>
-</div>
+
 {/* ── PARTNER LOGOS ── */}
 <div className="bg-white border-b border-sand-200 py-8 overflow-hidden">
   <style>{`
-    @keyframes marquee {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 .marquee-track {
   animation: marquee 25s linear infinite;
 }
@@ -192,28 +178,28 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
 
   <Container>
     <p className="text-center text-[10px] font-semibold tracking-[0.25em] uppercase text-charcoal-400 mb-6">
-      {locale === "ar" ? "شركات المجموعة" : "Our Group Companies"}
+      {locale === "ar" ? "شركات المجموعة" : "Our Group Of Companies"}
     </p>
   </Container>
 
-  <div className="relative overflow-hidden">
-    <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-    <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+<div className="relative overflow-hidden">
+  <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+  <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-    <div className="marquee-track flex w-max gap-8 sm:gap-16">
-      {[1, 2, 3, 4, 5].map((n) => (
-        <div key={n} className="flex items-center justify-center shrink-0 h-20 w-32 sm:h-24 sm:w-48">
-          <Image
-            src={`/images/companies/${n}.png`}
-            alt={`Company ${n}`}
-            width={192}
-            height={96}
-            className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-20 sm:max-h-24 w-auto"
-          />
-        </div>
-      ))}
-    </div>
+  <div className="marquee-track flex w-max gap-8 sm:gap-16">
+    {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((n, idx) => (
+      <div key={idx} className="flex items-center justify-center shrink-0 h-20 w-32 sm:h-24 sm:w-48">
+        <Image
+          src={`/images/companies/${n}.png`}
+          alt={`Company ${n}`}
+          width={192}
+          height={96}
+          className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-20 sm:max-h-24 w-auto"
+        />
+      </div>
+    ))}
   </div>
+</div>
 </div>
       {/* ── FEATURES ── */}
       <section className="bg-white border-b border-sand-200">
@@ -393,6 +379,21 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
           </div>
         </Container>
       </Section>
+      {/* ── JOINT VENTURE NOTICE ── */}
+<div className="bg-forest-700 border-b border-forest-800">
+  <Container>
+    <div className={cn("flex items-center justify-center gap-3 py-3.5", isRTL && "flex-row-reverse")}>
+      {/* Dot decorator */}
+      <span className="w-1.5 h-1.5 rounded-full bg-forest-300 shrink-0" />
+      <p className="text-sm text-white font-medium tracking-wide">
+        {locale === "ar"
+          ? "تعد شركة اكسون لاندسكيب مشروعاً مشتركاً مع شركة الحلم الأخضر الزراعية في الإمارات العربية المتحدة"
+          : "Axon Landscape is a Joint Venture with Green Dream Agricultural in UAE"}
+      </p>
+      <span className="w-1.5 h-1.5 rounded-full bg-forest-300 shrink-0" />
+    </div>
+  </Container>
+</div>
     </>
   );
 }

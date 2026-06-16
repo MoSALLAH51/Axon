@@ -25,7 +25,7 @@ const T = {
   en: {
     badge:    "Our Portfolio",
     title:    "Projects",
-    desc:     "Explore our completed landscape works across residential, commercial, and public spaces throughout the UAE.",
+    desc:     "Explore our completed landscape works across residential, commercial, and public spaces throughout the SYR.",
     empty:    "No projects available at this time.",
     prev:     "←",
     next:     "→",
@@ -33,7 +33,7 @@ const T = {
   ar: {
     badge:    "معرض أعمالنا",
     title:    "المشاريع",
-    desc:     "استعرض أعمالنا المنجزة في المناظر الطبيعية عبر المساحات السكنية والتجارية والعامة في الإمارات.",
+    desc:     "استعرض أعمالنا المنجزة في المناظر الطبيعية عبر المساحات السكنية والتجارية والعامة في سوريا.",
     empty:    "لا توجد مشاريع متاحة حالياً.",
     prev:     "→",
     next:     "←",

@@ -311,11 +311,11 @@ const SERVICES: ServiceData[] = [
     slug: "nursery",
     title: { en: "Plant Nursery & Supply", ar: "المشتل وتوريد النباتات" },
     description: {
-      en: "A wide selection of healthy, climate-suited plants and trees, sourced and cared for to thrive in the UAE.",
+      en: "A wide selection of healthy, climate-suited plants and trees, sourced and cared for to thrive in the area.",
       ar: "تشكيلة واسعة من النباتات والأشجار الصحية والمناسبة للمناخ، مصدرها وعناية بها لتزدهر في المنطقة.",
     },
     overview: {
-      en: "Our Plant Nursery & Supply service provides a curated range of trees, shrubs, and plants — all grown and maintained to thrive in the UAE's climate. Whether for a small garden or a large-scale project, we supply quality stock backed by expert guidance.",
+      en: "Our Plant Nursery & Supply service provides a curated range of trees, shrubs, and plants — all grown and maintained to thrive in the area's climate. Whether for a small garden or a large-scale project, we supply quality stock backed by expert guidance.",
       ar: "تقدم خدمة المشتل وتوريد النباتات تشكيلة مختارة من الأشجار والشجيرات والنباتات — جميعها مزروعة ومُعتنى بها لتزدهر في مناخ المنطقة. سواء لحديقة صغيرة أو مشروع كبير، نوفر مخزوناً عالي الجودة مدعوماً بإرشاد متخصص.",
     },
     hero_image: "/images/services/nursery.jpg",
@@ -379,7 +379,7 @@ const SERVICES: ServiceData[] = [
       { step: 6, title: { en: "Aftercare Advice", ar: "نصائح العناية اللاحقة" }, desc: { en: "Guidance to help new plants establish successfully.", ar: "إرشادات لمساعدة النباتات الجديدة على التأصل بنجاح." } },
     ],
     why: [
-      { icon: <LeafIcon />, title: { en: "Climate-Suited Stock", ar: "مخزون مناسب للمناخ" }, desc: { en: "Plants chosen and grown to thrive in UAE conditions.", ar: "نباتات مختارة ومزروعة لتزدهر في ظروف المنطقة." } },
+      { icon: <LeafIcon />, title: { en: "Climate-Suited Stock", ar: "مخزون مناسب للمناخ" }, desc: { en: "Plants chosen and grown to thrive in area conditions.", ar: "نباتات مختارة ومزروعة لتزدهر في ظروف المنطقة." } },
       { icon: <ShieldIcon />, title: { en: "Healthy Guarantee", ar: "ضمان الصحة" }, desc: { en: "Every plant inspected before delivery for top condition.", ar: "كل نبتة مفحوصة قبل التوصيل لضمان أفضل حالة." } },
       { icon: <GridIcon />, title: { en: "Wide Selection", ar: "تشكيلة واسعة" }, desc: { en: "From small shrubs to mature trees, all in one place.", ar: "من الشجيرات الصغيرة إلى الأشجار الكبيرة، كل ذلك في مكان واحد." } },
       { icon: <TeamIcon />, title: { en: "Expert Advice", ar: "نصائح الخبراء" }, desc: { en: "Our team helps you choose the right plants for your space.", ar: "يساعدك فريقنا في اختيار النباتات المناسبة لمساحتك." } },
@@ -591,7 +591,7 @@ const SERVICES: ServiceData[] = [
     why: [
       { icon: <DropIcon />, title: { en: "Water Efficient", ar: "كفاءة في استهلاك المياه" }, desc: { en: "Designs that minimize waste while maximizing plant health.", ar: "تصاميم تقلل الهدر وتعزز صحة النباتات." } },
       { icon: <CubeIcon />, title: { en: "Smart Technology", ar: "تقنية ذكية" }, desc: { en: "Modern controllers and sensors for automated precision.", ar: "وحدات تحكم وأجهزة استشعار حديثة لدقة تلقائية." } },
-      { icon: <TeamIcon />, title: { en: "Specialist Engineers", ar: "مهندسون متخصصون" }, desc: { en: "Irrigation experts who understand UAE soil and climate.", ar: "خبراء ري على دراية بتربة ومناخ المنطقة." } },
+      { icon: <TeamIcon />, title: { en: "Specialist Engineers", ar: "مهندسون متخصصون" }, desc: { en: "Irrigation experts who understand area soil and climate.", ar: "خبراء ري على دراية بتربة ومناخ المنطقة." } },
       { icon: <EcoIcon />, title: { en: "Sustainability Focused", ar: "تركيز على الاستدامة" }, desc: { en: "Systems designed to support long-term water conservation goals.", ar: "أنظمة مصممة لدعم أهداف ترشيد المياه طويلة الأمد." } },
     ],
     faq: [

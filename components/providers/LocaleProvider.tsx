@@ -1,13 +1,12 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useLocale } from "@/hooks/useLocale";
 import type { Locale } from "@/types";
 
 /* ------------------------------------------------------------------ */
 /*  Context                                                             */
 /* ------------------------------------------------------------------ */
-
 interface LocaleContextValue {
   locale: Locale;
   setLocale: (locale: Locale) => void;
@@ -21,9 +20,13 @@ const LocaleContext = createContext<LocaleContextValue>({
 /* ------------------------------------------------------------------ */
 /*  Provider                                                            */
 /* ------------------------------------------------------------------ */
-
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const { locale, setLocale } = useLocale();
+
+  useEffect(() => {
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
@@ -35,7 +38,6 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
 /* ------------------------------------------------------------------ */
 /*  Hook                                                                */
 /* ------------------------------------------------------------------ */
-
 export function useLocaleContext(): LocaleContextValue {
   return useContext(LocaleContext);
 }

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | AXON Landscape",
   },
   description:
-    "AXON Landscape delivers world-class landscape architecture, softscaping, hardscaping, and nursery services across the UAE.",
+    "AXON Landscape delivers world-class landscape architecture, softscaping, hardscaping, and nursery services across the area.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_WEBSITE_URL ?? "https://axonlandscape.com"),
   keywords: ["landscape architecture", "SYR", "landscape design", "softscaping", "hardscaping", "nursery", "Sharjah"],
   authors: [{ name: "AXON Landscape" }],

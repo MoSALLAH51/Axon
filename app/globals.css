@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=El+Messiri:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ─── CSS Custom Properties ──────────────────────────────────────────────── */
 :root {
-  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
-  --font-dm-sans: 'DM Sans', system-ui, sans-serif;
+  --font-cormorant: 'Marcellus', Georgia, serif;
+  --font-dm-sans: 'Jost', system-ui, sans-serif;
+  --font-arabic-display: 'El Messiri', serif;
+  --font-arabic-body: 'IBM Plex Sans Arabic', sans-serif;
 }
 
 /* ─── Base ────────────────────────────────────────────────────────────────── */
@@ -32,11 +33,18 @@
 
   /* RTL support */
   [dir="rtl"] {
-    font-family: 'Noto Sans Arabic', var(--font-dm-sans), sans-serif;
+    font-family: var(--font-arabic-body);
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-cormorant);
+  }
+
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4 {
+    font-family: var(--font-arabic-display);
   }
 
   /* Focus styles */
@@ -81,11 +89,9 @@
   .aspect-landscape {
     aspect-ratio: 4 / 3;
   }
-
   .aspect-portrait {
     aspect-ratio: 3 / 4;
   }
-
   .aspect-wide {
     aspect-ratio: 16 / 9;
   }
