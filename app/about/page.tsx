@@ -19,7 +19,7 @@ const ABOUT_LINKS = {
   ],
   ar: [
     { label: "ملف الشركة",  description: "قصتنا، رؤيتنا، مهمتنا، وقيمنا التأسيسية.",                   href: "/about/company-profile", number: "01" },
-    { label: "التراخيص",    description: "التراخيص التجارية والمهنية الرسمية الصادرة عن الجهات الإماراتية.", href: "/about/licenses",        number: "02" },
+    { label: "التراخيص",    description: "التراخيص التجارية والمهنية الرسمية الصادرة عن الجهات.", href: "/about/licenses",        number: "02" },
     { label: "الشهادات",    description: "الشهادات الدولية والمحلية التي تُثبت كفاءتنا وخبرتنا.",          href: "/about/certificates",    number: "03" },
   ],
 };

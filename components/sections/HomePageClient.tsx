@@ -162,18 +162,22 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
 {/* ── PARTNER LOGOS ── */}
 <div className="bg-white border-b border-sand-200 py-8 overflow-hidden">
   <style>{`
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.marquee-track {
-  animation: marquee 25s linear infinite;
-}
-@media (max-width: 640px) {
-  .marquee-track {
-    animation-duration: 16s;
-  }
-}
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @media (max-width: 640px) {
+      .marquee-track { animation-duration: 16s; }
+    }
   `}</style>
 
   <Container>
@@ -182,24 +186,26 @@ export default function HomePageClient({ services, projects }: HomePageClientPro
     </p>
   </Container>
 
-<div className="relative overflow-hidden">
-  <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-  <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+  <div className="relative overflow-hidden">
+    <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+    <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-  <div className="marquee-track flex w-max gap-8 sm:gap-16">
-    {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((n, idx) => (
-      <div key={idx} className="flex items-center justify-center shrink-0 h-20 w-32 sm:h-24 sm:w-48">
-        <Image
-          src={`/images/companies/${n}.png`}
-          alt={`Company ${n}`}
-          width={192}
-          height={96}
-          className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-20 sm:max-h-24 w-auto"
-        />
-      </div>
-    ))}
+    <div className="marquee-track">
+      {[...Array(2)].flatMap(() =>
+        [1, 2, 3, 4, 5].map((n, idx) => (
+          <div key={`${n}-${idx}`} className="flex items-center justify-center shrink-0 h-20 w-32 sm:h-24 sm:w-48 px-4">
+            <Image
+              src={`/images/companies/${n}.png`}
+              alt={`Company ${n}`}
+              width={192}
+              height={96}
+              className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-20 sm:max-h-24 w-auto"
+            />
+          </div>
+        ))
+      )}
+    </div>
   </div>
-</div>
 </div>
       {/* ── FEATURES ── */}
       <section className="bg-white border-b border-sand-200">
